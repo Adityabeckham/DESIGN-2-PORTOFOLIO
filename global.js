@@ -333,9 +333,24 @@ function makeElementDraggable(element) {
   element.onmousedown = dragMouseDown;
   element.ontouchstart = dragTouchStart;
 
+  function prepareDrag() {
+    const rect = element.getBoundingClientRect();
+    const parentRect = element.offsetParent ? element.offsetParent.getBoundingClientRect() : { left: 0, top: 0 };
+    const currentWidth = rect.width;
+    
+    // Explicitly set fixed left & top, and clear right/bottom to prevent box stretching
+    element.style.left = (rect.left - parentRect.left) + 'px';
+    element.style.top = (rect.top - parentRect.top) + 'px';
+    element.style.right = 'auto';
+    element.style.bottom = 'auto';
+    element.style.width = currentWidth + 'px';
+    element.style.maxWidth = currentWidth + 'px';
+  }
+
   function dragMouseDown(e) {
     if (e.target.tagName === 'BUTTON' || e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
     e.preventDefault();
+    prepareDrag();
     pos3 = e.clientX;
     pos4 = e.clientY;
     document.onmouseup = closeDragElement;
@@ -359,6 +374,7 @@ function makeElementDraggable(element) {
 
   function dragTouchStart(e) {
     if (e.target.tagName === 'BUTTON' || e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    prepareDrag();
     const touch = e.touches[0];
     pos3 = touch.clientX;
     pos4 = touch.clientY;

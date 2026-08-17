@@ -921,6 +921,8 @@ textarea {
   top: 40px;
   left: 0px;
   width: 210px;
+  max-width: 210px;
+  box-sizing: border-box;
   background: linear-gradient(135deg, var(--note-yellow), #f5a623);
   color: #1e1b18;
   transform: rotate(-10deg);
@@ -937,6 +939,8 @@ textarea {
   bottom: 30px;
   right: 0px;
   width: 220px;
+  max-width: 220px;
+  box-sizing: border-box;
   background: var(--color-bg-card);
   transform: rotate(8deg);
 }
