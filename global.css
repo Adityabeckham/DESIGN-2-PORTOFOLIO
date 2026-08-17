@@ -1978,7 +1978,17 @@ textarea {
   letter-spacing: -0.02em;
 }
 
-/* Interactive Scroll Paper Plane Runner (Centered & Viewport-following) */
+/* Dynamic Long Thread SVG Layer for Paper Plane */
+#paper-plane-thread-svg {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 55;
+}
+
+/* Interactive Scroll Paper Plane Runner (Left Side & Long Thread Trail) */
 #paper-plane-runner {
   position: fixed;
   top: 0;
@@ -1994,19 +2004,7 @@ textarea {
 }
 
 #paper-plane-runner.is-flying {
-  filter: drop-shadow(0 14px 24px rgba(223, 81, 59, 0.45));
-}
-
-.paper-plane-trail {
-  position: absolute;
-  top: 50%;
-  right: 85%;
-  width: 55px;
-  height: 2.5px;
-  background: repeating-linear-gradient(90deg, var(--color-text-accent) 0 5px, transparent 5px 10px);
-  opacity: 0.75;
-  transform: translateY(-50%);
-  pointer-events: none;
+  filter: drop-shadow(0 14px 24px rgba(223, 81, 59, 0.5));
 }
 
 /* Washi Paper Tape Accents for Scrapbook Vibe */
@@ -2053,20 +2051,36 @@ textarea {
   will-change: transform;
 }
 
-/* Interactive Floating Basketball 🏀 */
-.bg-basketball {
-  font-size: 2.2rem;
-  filter: drop-shadow(0 6px 12px rgba(223, 81, 59, 0.3));
-  animation: basketballFloat 6s ease-in-out infinite alternate;
+/* Interactive Floating Futsal Ball ⚽ */
+.bg-futsal {
+  font-size: 2.3rem;
+  filter: drop-shadow(0 6px 14px rgba(42, 36, 29, 0.25));
+  animation: futsalFloat 6s ease-in-out infinite alternate;
 }
-.bg-basketball:hover {
-  transform: scale(1.35) rotate(45deg);
+.bg-futsal:hover {
+  transform: scale(1.4) rotate(180deg);
 }
 
-@keyframes basketballFloat {
+@keyframes futsalFloat {
   0% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-18px) rotate(15deg); }
-  100% { transform: translateY(6px) rotate(-10deg); }
+  50% { transform: translateY(-16px) rotate(45deg); }
+  100% { transform: translateY(8px) rotate(-30deg); }
+}
+
+/* Interactive Floating Running / Jogging 🏃‍♂️ */
+.bg-jogging {
+  font-size: 2.4rem;
+  filter: drop-shadow(0 6px 14px rgba(63, 111, 176, 0.3));
+  animation: joggingStride 5s ease-in-out infinite alternate;
+}
+.bg-jogging:hover {
+  transform: scale(1.35) translateX(12px);
+}
+
+@keyframes joggingStride {
+  0% { transform: translateY(0px) scaleX(1); }
+  50% { transform: translateY(-14px) scaleX(1.08); }
+  100% { transform: translateY(6px) scaleX(1); }
 }
 
 /* Floating Vector Squiggles & Code Symbols */

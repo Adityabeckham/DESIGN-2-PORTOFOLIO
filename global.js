@@ -689,19 +689,19 @@ function escapeHTML(str) {
 }
 
 /* ==========================================================================
-   14. Paper Plane Scroll Glide Runner (Ref: zafarsyah.my.id)
-   Glides smoothly down the CENTER of the screen, tracking the user's scroll.
+   14. Paper Plane Scroll Glide Runner (Left Side & Long Thread Trail)
    ========================================================================== */
 function initPaperPlaneRunner() {
   const plane = document.getElementById('paper-plane-runner');
+  const threadPath = document.getElementById('paper-plane-thread-path');
   if (!plane) return;
 
-  let currentX = window.innerWidth * 0.48;
-  let currentY = window.innerHeight * 0.45;
+  let currentX = window.innerWidth * 0.04;
+  let currentY = window.innerHeight * 0.18;
   let targetX = currentX;
   let targetY = currentY;
-  let currentRotation = 20;
-  let targetRotation = 20;
+  let currentRotation = 25;
+  let targetRotation = 25;
   let lastScrollY = window.scrollY;
   let scrollTimeout = null;
 
@@ -712,33 +712,45 @@ function initPaperPlaneRunner() {
     const scrollDelta = scrollTop - lastScrollY;
     lastScrollY = scrollTop;
 
-    // Centered horizontal flight path weaving gracefully around 42vw - 58vw
-    const waveX = Math.sin(scrollPercent * Math.PI * 5) * 14;
-    targetX = (window.innerWidth * 0.5) + (waveX * (window.innerWidth / 100)) - 24;
+    // Fixed on left side (3vw to 7vw wave path)
+    const waveX = Math.sin(scrollPercent * Math.PI * 4) * 2.5;
+    targetX = (window.innerWidth * 0.035) + (waveX * (window.innerWidth / 100));
 
-    // Vertical placement floating centered in viewport (35vh to 52vh)
-    const waveY = (window.innerHeight * 0.42) + Math.cos(scrollPercent * Math.PI * 4) * 40;
+    // Glides down with scroll in viewport (14vh to 78vh)
+    const waveY = (window.innerHeight * 0.14) + (scrollPercent * window.innerHeight * 0.64);
     targetY = waveY;
 
-    // Dynamic rotation pitch based on scroll speed & flight trajectory
-    let scrollPitch = Math.min(Math.max(scrollDelta * 1.8, -35), 45);
-    targetRotation = 20 + scrollPitch + Math.cos(scrollPercent * Math.PI * 5) * 12;
+    // Rotation pitch based on scroll speed & flight direction
+    let scrollPitch = Math.min(Math.max(scrollDelta * 1.5, -25), 35);
+    targetRotation = 22 + scrollPitch + Math.cos(scrollPercent * Math.PI * 4) * 8;
 
     plane.classList.add('is-flying');
     clearTimeout(scrollTimeout);
     scrollTimeout = setTimeout(() => {
       plane.classList.remove('is-flying');
-      targetRotation = 18;
+      targetRotation = 22;
     }, 150);
   }
 
   function loopAnimation() {
-    // Smooth lerp movement
     currentX += (targetX - currentX) * 0.12;
     currentY += (targetY - currentY) * 0.12;
     currentRotation += (targetRotation - currentRotation) * 0.12;
 
     plane.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) rotate(${currentRotation}deg)`;
+
+    // Draw long dynamic trailing thread SVG string behind the plane
+    if (threadPath) {
+      const planeTailX = currentX + 8;
+      const planeTailY = currentY + 24;
+      const startX = currentX - 15;
+      const startY = Math.max(0, currentY - 180); // Long string trailing 180px behind up the left margin
+      const controlX = currentX - 35 + Math.sin(Date.now() * 0.003) * 10;
+      const controlY = (startY + planeTailY) / 2;
+
+      threadPath.setAttribute('d', `M ${startX} ${startY} Q ${controlX} ${controlY}, ${planeTailX} ${planeTailY}`);
+    }
+
     requestAnimationFrame(loopAnimation);
   }
 
@@ -749,18 +761,19 @@ function initPaperPlaneRunner() {
 
 /* ==========================================================================
    15. Interactive Scrapbook Floating Background Engine
-   Renders basketball, code brackets, squiggles & mouse physics.
+   Renders futsal ⚽, running 🏃‍♂️, code brackets, squiggles & mouse physics.
    ========================================================================== */
 function initScrapbookInteractiveBg() {
   const container = document.getElementById('scrapbook-interactive-bg');
   if (!container) return;
 
   const items = [
-    { type: 'basketball', html: '🏀', x: 88, y: 18, size: 2.2 },
+    { type: 'futsal', html: '⚽', x: 88, y: 18, size: 2.3 },
+    { type: 'jogging', html: '🏃‍♂️', x: 10, y: 62, size: 2.4 },
     { type: 'code', html: '&lt;/&gt;', x: 92, y: 55, size: 1.4 },
-    { type: 'code', html: '{ }', x: 6, y: 72, size: 1.5 },
-    { type: 'sparkle', html: '✨', x: 82, y: 40, size: 1.6 },
-    { type: 'sparkle', html: '✦', x: 12, y: 35, size: 1.8 },
+    { type: 'code', html: '{ }', x: 7, y: 82, size: 1.5 },
+    { type: 'sparkle', html: '✨', x: 84, y: 40, size: 1.6 },
+    { type: 'sparkle', html: '✦', x: 14, y: 35, size: 1.8 },
     { type: 'squiggle', html: `<svg width="80" height="30" viewBox="0 0 100 40"><path d="M5 20 Q 25 5, 45 20 T 85 20" stroke="#df513b" stroke-width="3" fill="none"/></svg>`, x: 85, y: 82, size: 1.0 },
     { type: 'squiggle', html: `<svg width="70" height="30" viewBox="0 0 100 40"><path d="M5 20 Q 25 35, 45 20 T 85 20" stroke="#3f6fb0" stroke-width="3" fill="none"/></svg>`, x: 8, y: 48, size: 1.0 }
   ];

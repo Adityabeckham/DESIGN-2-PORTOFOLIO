@@ -67,6 +67,11 @@
   <!-- Interactive Scrapbook Canvas Layer -->
   <div id="scrapbook-interactive-bg" aria-hidden="true"></div>
 
+  <!-- Dynamic Long Thread SVG Layer for Paper Plane -->
+  <svg id="paper-plane-thread-svg" aria-hidden="true">
+    <path id="paper-plane-thread-path" d="" fill="none" stroke="#df513b" stroke-width="2" stroke-dasharray="5 5" stroke-opacity="0.75" />
+  </svg>
+
   <!-- Scroll-following Interactive Paper Plane Runner -->
   <div id="paper-plane-runner" aria-hidden="true" class="paper-plane-container" title="Paper plane gliding down with scroll">
     <svg width="44" height="44" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -75,7 +80,7 @@
       <path d="M20 27l4 16" stroke="#2a241d" stroke-width="2" stroke-linejoin="round"/>
       <path d="M45 5L24 43" stroke="#2a241d" stroke-width="1.5" stroke-opacity="0.4" stroke-linecap="round"/>
     </svg>
-    <span class="paper-plane-trail"></span>
+    <div class="paper-plane-long-thread"></div>
   </div>
 
   <!-- Scroll Progress Indicator -->
