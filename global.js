@@ -690,35 +690,61 @@ function escapeHTML(str) {
 
 /* ==========================================================================
    14. Paper Plane Scroll Glide Runner (Ref: zafarsyah.my.id)
-   Glides smoothly downwards as the user scrolls down the page.
+   Glides smoothly down the CENTER of the screen, tracking the user's scroll.
    ========================================================================== */
 function initPaperPlaneRunner() {
   const plane = document.getElementById('paper-plane-runner');
   if (!plane) return;
 
+  let currentX = window.innerWidth * 0.48;
+  let currentY = window.innerHeight * 0.45;
+  let targetX = currentX;
+  let targetY = currentY;
+  let currentRotation = 20;
+  let targetRotation = 20;
+  let lastScrollY = window.scrollY;
   let scrollTimeout = null;
 
-  function updatePlanePosition() {
+  function updatePlane() {
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const scrollPercent = docHeight > 0 ? Math.min(Math.max(scrollTop / docHeight, 0), 1) : 0;
+    const scrollDelta = scrollTop - lastScrollY;
+    lastScrollY = scrollTop;
 
-    // Flight curve coordinates across the screen side
-    const yPos = 12 + scrollPercent * 70; // 12vh to 82vh
-    const xPos = 3 + Math.sin(scrollPercent * Math.PI * 3.5) * 6; // 3vw +/- 6vw wave path
-    const rotation = 20 + Math.cos(scrollPercent * Math.PI * 3.5) * 22; // Dynamic flight tilt angle
+    // Centered horizontal flight path weaving gracefully around 42vw - 58vw
+    const waveX = Math.sin(scrollPercent * Math.PI * 5) * 14;
+    targetX = (window.innerWidth * 0.5) + (waveX * (window.innerWidth / 100)) - 24;
 
-    plane.style.transform = `translate3d(${xPos}vw, ${yPos}vh, 0) rotate(${rotation}deg)`;
+    // Vertical placement floating centered in viewport (35vh to 52vh)
+    const waveY = (window.innerHeight * 0.42) + Math.cos(scrollPercent * Math.PI * 4) * 40;
+    targetY = waveY;
+
+    // Dynamic rotation pitch based on scroll speed & flight trajectory
+    let scrollPitch = Math.min(Math.max(scrollDelta * 1.8, -35), 45);
+    targetRotation = 20 + scrollPitch + Math.cos(scrollPercent * Math.PI * 5) * 12;
 
     plane.classList.add('is-flying');
     clearTimeout(scrollTimeout);
     scrollTimeout = setTimeout(() => {
       plane.classList.remove('is-flying');
+      targetRotation = 18;
     }, 150);
   }
 
-  window.addEventListener('scroll', updatePlanePosition, { passive: true });
-  updatePlanePosition();
+  function loopAnimation() {
+    // Smooth lerp movement
+    currentX += (targetX - currentX) * 0.12;
+    currentY += (targetY - currentY) * 0.12;
+    currentRotation += (targetRotation - currentRotation) * 0.12;
+
+    plane.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) rotate(${currentRotation}deg)`;
+    requestAnimationFrame(loopAnimation);
+  }
+
+  window.addEventListener('scroll', updatePlane, { passive: true });
+  updatePlane();
+  loopAnimation();
 }
 
 /* ==========================================================================
