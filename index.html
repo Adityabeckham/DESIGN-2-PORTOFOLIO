@@ -1,13 +1,57 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="light" class="paper-texture">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio — Aditya Beckham</title>
+  <title>Aditya Beckham — Web Developer | Portfolio</title>
   <meta name="description"
-    content="Portfolio of Aditya Beckham — Junior Web Developer with experience in frontend web design and full-stack development.">
+    content="Official Portfolio of Aditya Beckham — Web Developer specializing in responsive web design, React, Next.js, and Full-Stack Web Development.">
+  <meta name="keywords"
+    content="Aditya Beckham, Web Developer, Frontend Engineer, Full-Stack Developer, Bandung, React Developer, Next.js, Node.js, Tailwind CSS, JavaScript Portfolio">
   <meta name="author" content="Aditya Beckham">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#fbf6ea">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://github.com/Adityabeckham/DESIGN-2-PORTOFOLIO">
+
+  <!-- Resource Hints & Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fira+Code:wght@400;500;700&family=Kalam:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Open Graph / Facebook Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://github.com/Adityabeckham/DESIGN-2-PORTOFOLIO">
+  <meta property="og:title" content="Aditya Beckham — Web Developer Portfolio">
+  <meta property="og:description" content="Portfolio of Aditya Beckham — Web Developer with expertise in modern web design and full-stack web applications.">
+  <meta property="og:image" content="assets/images/profile/foto-about.png">
+  <meta property="og:site_name" content="Aditya Beckham Portfolio">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Aditya Beckham — Web Developer Portfolio">
+  <meta name="twitter:description" content="Portfolio of Aditya Beckham — Web Developer with expertise in modern web design and full-stack web applications.">
+  <meta name="twitter:image" content="assets/images/profile/foto-about.png">
+
+  <!-- JSON-LD Structured Data Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Aditya Beckham",
+    "jobTitle": "Web Developer",
+    "almaMater": "Universitas Teknologi Bandung",
+    "email": "abfirmansyah01@gmail.com",
+    "url": "https://github.com/Adityabeckham/DESIGN-2-PORTOFOLIO",
+    "sameAs": [
+      "https://github.com/Adityabeckham",
+      "https://linkedin.com/in/adityabeckham"
+    ],
+    "knowsAbout": ["Web Development", "Frontend Web Design", "React", "Next.js", "Node.js", "JavaScript", "Tailwind CSS"]
+  }
+  </script>
 
   <!-- Favicon -->
   <link rel="icon" href="assets/images/profile/foto.jpg" type="image/jpeg">
@@ -20,6 +64,20 @@
 </head>
 
 <body>
+  <!-- Interactive Scrapbook Canvas Layer -->
+  <div id="scrapbook-interactive-bg" aria-hidden="true"></div>
+
+  <!-- Scroll-following Interactive Paper Plane Runner -->
+  <div id="paper-plane-runner" aria-hidden="true" class="paper-plane-container" title="Paper plane gliding down with scroll">
+    <svg width="44" height="44" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M45 5L3 22l17 5 4 16z" fill="#df513b" stroke="#2a241d" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M45 5L20 27" stroke="#2a241d" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M20 27l4 16" stroke="#2a241d" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M45 5L24 43" stroke="#2a241d" stroke-width="1.5" stroke-opacity="0.4" stroke-linecap="round"/>
+    </svg>
+    <span class="paper-plane-trail"></span>
+  </div>
+
   <!-- Scroll Progress Indicator -->
   <div id="scroll-progress"></div>
 
@@ -40,7 +98,7 @@
     <div class="container header-container">
       <!-- Far Left ORI Logo Image -->
       <a href="#home" class="logo">
-        <img src="assets/images/profile/foto-me.png" alt="Aditya Beckham Logo" class="nav-avatar-img">
+        <img src="assets/images/profile/foto-me.png" alt="Aditya Beckham Logo" class="nav-avatar-img" fetchpriority="high" decoding="async">
       </a>
 
       <!-- Desktop Navigation Menu -->
@@ -128,7 +186,7 @@
 
         <!-- Floating Draggable Card 2 (Bottom Right Polaroid Photo) -->
         <div class="floating-card card-2">
-          <img src="assets/images/profile/foto_ngoding.jpeg" alt="Aditya Beckham Coding">
+          <img src="assets/images/profile/foto_ngoding.jpeg" alt="Aditya Beckham Coding" fetchpriority="high" decoding="async">
           <p>late-night coding sessions 💻</p>
         </div>
 

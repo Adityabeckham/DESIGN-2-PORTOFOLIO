@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initProjectFilters();
   initStickerBoard();
   initGuestbookBoard();
+  initPaperPlaneRunner();
+  initScrapbookInteractiveBg();
 });
 
 /* ==========================================================================
@@ -684,4 +686,108 @@ function escapeHTML(str) {
       '"': '&quot;'
     }[tag] || tag)
   );
+}
+
+/* ==========================================================================
+   14. Paper Plane Scroll Glide Runner (Ref: zafarsyah.my.id)
+   Glides smoothly downwards as the user scrolls down the page.
+   ========================================================================== */
+function initPaperPlaneRunner() {
+  const plane = document.getElementById('paper-plane-runner');
+  if (!plane) return;
+
+  let scrollTimeout = null;
+
+  function updatePlanePosition() {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = docHeight > 0 ? Math.min(Math.max(scrollTop / docHeight, 0), 1) : 0;
+
+    // Flight curve coordinates across the screen side
+    const yPos = 12 + scrollPercent * 70; // 12vh to 82vh
+    const xPos = 3 + Math.sin(scrollPercent * Math.PI * 3.5) * 6; // 3vw +/- 6vw wave path
+    const rotation = 20 + Math.cos(scrollPercent * Math.PI * 3.5) * 22; // Dynamic flight tilt angle
+
+    plane.style.transform = `translate3d(${xPos}vw, ${yPos}vh, 0) rotate(${rotation}deg)`;
+
+    plane.classList.add('is-flying');
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      plane.classList.remove('is-flying');
+    }, 150);
+  }
+
+  window.addEventListener('scroll', updatePlanePosition, { passive: true });
+  updatePlanePosition();
+}
+
+/* ==========================================================================
+   15. Interactive Scrapbook Floating Background Engine
+   Renders basketball, code brackets, squiggles & mouse physics.
+   ========================================================================== */
+function initScrapbookInteractiveBg() {
+  const container = document.getElementById('scrapbook-interactive-bg');
+  if (!container) return;
+
+  const items = [
+    { type: 'basketball', html: '🏀', x: 88, y: 18, size: 2.2 },
+    { type: 'code', html: '&lt;/&gt;', x: 92, y: 55, size: 1.4 },
+    { type: 'code', html: '{ }', x: 6, y: 72, size: 1.5 },
+    { type: 'sparkle', html: '✨', x: 82, y: 40, size: 1.6 },
+    { type: 'sparkle', html: '✦', x: 12, y: 35, size: 1.8 },
+    { type: 'squiggle', html: `<svg width="80" height="30" viewBox="0 0 100 40"><path d="M5 20 Q 25 5, 45 20 T 85 20" stroke="#df513b" stroke-width="3" fill="none"/></svg>`, x: 85, y: 82, size: 1.0 },
+    { type: 'squiggle', html: `<svg width="70" height="30" viewBox="0 0 100 40"><path d="M5 20 Q 25 35, 45 20 T 85 20" stroke="#3f6fb0" stroke-width="3" fill="none"/></svg>`, x: 8, y: 48, size: 1.0 }
+  ];
+
+  const nodeElements = [];
+
+  items.forEach(item => {
+    const el = document.createElement('div');
+    el.className = `bg-floating-item bg-${item.type}`;
+    el.style.left = `${item.x}vw`;
+    el.style.top = `${item.y}vh`;
+    el.innerHTML = item.html;
+    
+    container.appendChild(el);
+    nodeElements.push({ element: el, origX: item.x, origY: item.y, currentX: 0, currentY: 0 });
+  });
+
+  // Mouse Repulsion & Floating Physics
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  }, { passive: true });
+
+  function animatePhysics() {
+    nodeElements.forEach(node => {
+      const rect = node.element.getBoundingClientRect();
+      const nodeCenterX = rect.left + rect.width / 2;
+      const nodeCenterY = rect.top + rect.height / 2;
+
+      const distX = mouseX - nodeCenterX;
+      const distY = mouseY - nodeCenterY;
+      const distance = Math.hypot(distX, distY);
+
+      let targetX = 0;
+      let targetY = 0;
+
+      if (distance < 220) {
+        const force = (220 - distance) / 220;
+        targetX = -(distX / distance) * force * 35;
+        targetY = -(distY / distance) * force * 35;
+      }
+
+      node.currentX += (targetX - node.currentX) * 0.1;
+      node.currentY += (targetY - node.currentY) * 0.1;
+
+      node.element.style.transform = `translate3d(${node.currentX}px, ${node.currentY}px, 0)`;
+    });
+
+    requestAnimationFrame(animatePhysics);
+  }
+
+  animatePhysics();
 }

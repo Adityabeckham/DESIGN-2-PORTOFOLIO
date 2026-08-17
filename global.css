@@ -1,36 +1,39 @@
 /* ==========================================================================
-   PORTFOLIO DESIGN SYSTEM & HYPER-INTERACTIVE CSS STYLESHEET
+   PORTFOLIO DESIGN SYSTEM & INTERACTIVE SCRAPBOOK STYLESHEET
    Developer: Aditya Beckham
-   Style: Ultra-Premium Glossy Neon & Cyber-Glitch with Ambient Color Shift
+   Style: Scrapbook Paper Texture & Interactive Ambient Engine (Ref: zafarsyah.my.id)
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;700&family=Orbitron:wght@600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fira+Code:wght@400;500;700&family=Kalam:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 :root {
-  /* Color Tokens - Light / Warm Theme (Default) */
+  /* Color Tokens - Light / Warm Cream Canvas (Ref: zafarsyah.my.id) */
   --color-bg-primary: #fbf6ea;
   --color-bg-secondary: #f2e8d5;
-  --color-bg-card: rgba(255, 255, 255, 0.92);
-  --color-bg-glass: rgba(251, 246, 234, 0.88);
+  --color-bg-card: rgba(255, 255, 255, 0.94);
+  --color-bg-glass: rgba(251, 246, 234, 0.9);
 
-  --color-text-primary: #1e1b18;
+  --color-text-primary: #2a241d;
   --color-text-secondary: #5c5243;
   --color-text-muted: #8c7b64;
   --color-text-accent: #df513b;
-  --color-text-highlight: #e09f2b;
+  --color-text-highlight: #f5c84b;
+  --color-text-blue: #3f6fb0;
+  --color-text-green: #3d6b2e;
 
   --color-border: #e2d3bc;
-  --color-border-subtle: rgba(42, 36, 29, 0.08);
-  --color-glow: rgba(223, 81, 59, 0.25);
+  --color-border-subtle: rgba(42, 36, 29, 0.1);
+  --color-glow: rgba(223, 81, 59, 0.22);
 
-  --color-shadow: rgba(42, 36, 29, 0.08);
-  --color-shadow-hover: rgba(42, 36, 29, 0.2);
+  --color-shadow: rgba(42, 36, 29, 0.09);
+  --color-shadow-hover: rgba(42, 36, 29, 0.22);
+  --color-shadow-paper: 0 4px 15px rgba(42, 36, 29, 0.08);
 
-  /* Fonts */
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-handwriting: 'Caveat', cursive;
+  /* Fonts - Matching zafarsyah.my.id */
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-handwriting: 'Caveat', 'Kalam', cursive;
   --font-mono: 'Fira Code', monospace;
-  --font-display: 'Orbitron', 'Inter', sans-serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
 
   /* Sticky Note Palette */
   --note-yellow: #f5c84b;
@@ -50,7 +53,7 @@
 [data-theme="dark"] {
   --color-bg-primary: #0a0b10;
   --color-bg-secondary: #12141d;
-  --color-bg-card: rgba(22, 25, 36, 0.9);
+  --color-bg-card: rgba(22, 25, 36, 0.92);
   --color-bg-glass: rgba(10, 11, 16, 0.92);
 
   --color-text-primary: #f3f6fc;
@@ -58,6 +61,8 @@
   --color-text-muted: #6b7a99;
   --color-text-accent: #ff523b;
   --color-text-highlight: #ffb830;
+  --color-text-blue: #60a5fa;
+  --color-text-green: #4ade80;
 
   --color-border: #282d3d;
   --color-border-subtle: rgba(255, 255, 255, 0.08);
@@ -65,12 +70,27 @@
 
   --color-shadow: rgba(0, 0, 0, 0.4);
   --color-shadow-hover: rgba(0, 0, 0, 0.7);
+  --color-shadow-paper: 0 4px 15px rgba(0, 0, 0, 0.4);
 
   --note-yellow: #e6b800;
   --note-blue: #3d6090;
   --note-green: #3b6b4c;
   --note-pink: #9e3d4e;
   --note-cream: #222733;
+}
+
+/* Base Body & Paper Grain Texture */
+html.paper-texture, body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(223, 81, 59, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 85% 75%, rgba(63, 111, 176, 0.04) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(245, 200, 75, 0.03) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+  overflow-x: hidden;
 }
 
 /* Dynamic Ambient Scroll Color Classes on Body */
@@ -1945,4 +1965,135 @@ textarea {
   .corkboard-notes-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* ==========================================================================
+   INTERACTIVE SCRAPBOOK CANVAS & PAPER PLANE RUNNER STYLES
+   ========================================================================== */
+
+/* Hand-drawn Typography Helpers (zafarsyah.my.id aesthetic) */
+.scrawl, .hand-font {
+  font-family: var(--font-handwriting);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Interactive Scroll Paper Plane Runner */
+#paper-plane-runner {
+  position: fixed;
+  top: 15vh;
+  left: 3vw;
+  z-index: 60;
+  pointer-events: none;
+  width: 44px;
+  height: 44px;
+  transform-origin: center center;
+  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease;
+  filter: drop-shadow(0 6px 12px rgba(42, 36, 29, 0.18));
+  will-change: transform;
+}
+
+#paper-plane-runner.is-flying {
+  filter: drop-shadow(0 12px 20px rgba(223, 81, 59, 0.35));
+}
+
+.paper-plane-trail {
+  position: absolute;
+  top: 50%;
+  right: 90%;
+  width: 45px;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, var(--color-text-accent) 0 4px, transparent 4px 8px);
+  opacity: 0.7;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Washi Paper Tape Accents for Scrapbook Vibe */
+.tape {
+  position: relative;
+}
+.tape::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 90px;
+  height: 22px;
+  background: rgba(245, 200, 75, 0.65);
+  border-left: 2px dashed rgba(255, 255, 255, 0.5);
+  border-right: 2px dashed rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  z-index: 10;
+  pointer-events: none;
+}
+.tape-red::before {
+  background: rgba(223, 81, 59, 0.6);
+}
+.tape-blue::before {
+  background: rgba(63, 111, 176, 0.6);
+}
+
+/* Interactive Floating Background Elements Canvas Layer */
+#scrapbook-interactive-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bg-floating-item {
+  position: absolute;
+  pointer-events: auto;
+  cursor: grab;
+  user-select: none;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+  will-change: transform;
+}
+
+/* Interactive Floating Basketball 🏀 */
+.bg-basketball {
+  font-size: 2.2rem;
+  filter: drop-shadow(0 6px 12px rgba(223, 81, 59, 0.3));
+  animation: basketballFloat 6s ease-in-out infinite alternate;
+}
+.bg-basketball:hover {
+  transform: scale(1.35) rotate(45deg);
+}
+
+@keyframes basketballFloat {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(15deg); }
+  100% { transform: translateY(6px) rotate(-10deg); }
+}
+
+/* Floating Vector Squiggles & Code Symbols */
+.bg-vector-squiggle {
+  stroke: var(--color-text-accent);
+  stroke-width: 2.5;
+  fill: none;
+  opacity: 0.45;
+  animation: squiggleWiggle 8s ease-in-out infinite alternate;
+}
+
+.bg-code-symbol {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--color-text-blue);
+  opacity: 0.5;
+}
+
+.bg-sparkle {
+  color: var(--color-text-highlight);
+  font-size: 1.5rem;
+  animation: sparkleSpin 4s linear infinite;
+}
+
+@keyframes sparkleSpin {
+  0% { transform: scale(0.8) rotate(0deg); opacity: 0.4; }
+  50% { transform: scale(1.2) rotate(180deg); opacity: 0.9; }
+  100% { transform: scale(0.8) rotate(360deg); opacity: 0.4; }
 }
