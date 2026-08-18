@@ -17,7 +17,7 @@ export default function DraggableStickyNote({
   onDelete,
 }: DraggableStickyNoteProps) {
   const noteRef = useRef<HTMLDivElement | null>(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const posRef = useRef({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
 
   const initialRotation = (index % 2 === 0 ? 1 : -1) * ((index * 3) % 7 + 2);
@@ -28,18 +28,38 @@ export default function DraggableStickyNote({
       return;
     }
 
+    const noteElem = noteRef.current;
+    if (!noteElem) return;
+
     setIsDragging(true);
-    const startX = e.clientX - position.x;
-    const startY = e.clientY - position.y;
+    noteElem.style.zIndex = '100';
+    noteElem.style.transition = 'none';
+
+    const startX = e.clientX - posRef.current.x;
+    const startY = e.clientY - posRef.current.y;
+    let animFrameId: number;
 
     const handleMouseMove = (moveEvent: MouseEvent) => {
       const newX = moveEvent.clientX - startX;
       const newY = moveEvent.clientY - startY;
-      setPosition({ x: newX, y: newY });
+      posRef.current = { x: newX, y: newY };
+
+      cancelAnimationFrame(animFrameId);
+      animFrameId = requestAnimationFrame(() => {
+        if (noteElem) {
+          noteElem.style.transform = `translate(${newX}px, ${newY}px) rotate(${initialRotation}deg) scale(1.03)`;
+        }
+      });
     };
 
     const handleMouseUp = () => {
       setIsDragging(false);
+      cancelAnimationFrame(animFrameId);
+      if (noteElem) {
+        noteElem.style.zIndex = '1';
+        noteElem.style.transition = 'transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.2s ease';
+        noteElem.style.transform = `translate(${posRef.current.x}px, ${posRef.current.y}px) rotate(${initialRotation}deg) scale(1)`;
+      }
       document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseup', handleMouseUp);
     };
@@ -54,20 +74,40 @@ export default function DraggableStickyNote({
       return;
     }
 
+    const noteElem = noteRef.current;
+    if (!noteElem) return;
+
     const touch = e.touches[0];
     setIsDragging(true);
-    const startX = touch.clientX - position.x;
-    const startY = touch.clientY - position.y;
+    noteElem.style.zIndex = '100';
+    noteElem.style.transition = 'none';
+
+    const startX = touch.clientX - posRef.current.x;
+    const startY = touch.clientY - posRef.current.y;
+    let animFrameId: number;
 
     const handleTouchMove = (moveEvent: TouchEvent) => {
       const currentTouch = moveEvent.touches[0];
       const newX = currentTouch.clientX - startX;
       const newY = currentTouch.clientY - startY;
-      setPosition({ x: newX, y: newY });
+      posRef.current = { x: newX, y: newY };
+
+      cancelAnimationFrame(animFrameId);
+      animFrameId = requestAnimationFrame(() => {
+        if (noteElem) {
+          noteElem.style.transform = `translate(${newX}px, ${newY}px) rotate(${initialRotation}deg) scale(1.03)`;
+        }
+      });
     };
 
     const handleTouchEnd = () => {
       setIsDragging(false);
+      cancelAnimationFrame(animFrameId);
+      if (noteElem) {
+        noteElem.style.zIndex = '1';
+        noteElem.style.transition = 'transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.2s ease';
+        noteElem.style.transform = `translate(${posRef.current.x}px, ${posRef.current.y}px) rotate(${initialRotation}deg) scale(1)`;
+      }
       document.removeEventListener('touchmove', handleTouchMove);
       document.removeEventListener('touchend', handleTouchEnd);
     };
@@ -81,13 +121,14 @@ export default function DraggableStickyNote({
       ref={noteRef}
       className={`sticky-note-card note-theme-${note.color} ${isDragging ? 'dragging' : ''}`}
       style={{
-        transform: `translate(${position.x}px, ${position.y}px) rotate(${initialRotation}deg)`,
+        transform: `translate(${posRef.current.x}px, ${posRef.current.y}px) rotate(${initialRotation}deg)`,
         cursor: isDragging ? 'grabbing' : 'grab',
-        zIndex: isDragging ? 100 : 1,
-        transition: isDragging ? 'none' : 'transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.2s ease',
+        zIndex: 1,
+        transition: 'transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.2s ease',
         boxShadow: isDragging ? '0 15px 30px rgba(0,0,0,0.25)' : undefined,
         userSelect: 'none',
-        touchAction: 'none'
+        touchAction: 'none',
+        willChange: 'transform'
       }}
       onMouseDown={handleMouseDown}
       onTouchStart={handleTouchStart}

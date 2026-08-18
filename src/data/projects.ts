@@ -3,7 +3,7 @@ import { ProjectItem } from '@/types';
 export const projectsData: ProjectItem[] = [
   {
     id: '1',
-    category: 'work-capstone',
+    category: 'internship-capstone',
     title: 'OpenJob RESTful API V1',
     meta: 'Backend Project · Node.js, Express & PostgreSQL',
     desc: 'RESTful API backend scalable untuk platform rekrutmen kerja, dilengkapi authentication JWT, PostgreSQL relational schema, dan route sanitization.',
@@ -12,7 +12,7 @@ export const projectsData: ProjectItem[] = [
   },
   {
     id: '2',
-    category: 'work-capstone',
+    category: 'internship-capstone',
     title: 'MyFinance - AI Powered Money Manager',
     meta: 'Capstone Project · DBS Foundation Coding Camp',
     desc: 'Platform web manajemen keuangan pribadi berbasis AI yang membantu pengguna mencatat, menganalisis, dan merencanakan kondisi finansial.',
@@ -21,7 +21,7 @@ export const projectsData: ProjectItem[] = [
   },
   {
     id: '3',
-    category: 'work-capstone',
+    category: 'internship-capstone',
     title: 'Tuku Coffee - Landing Page ☕',
     meta: 'Commercial Showcase · Next.js 15 & Tailwind CSS',
     desc: 'Landing page scrollytelling yang imersif, responsif, dan berperforma tinggi dengan animasi mikro yang mulus.',
@@ -30,7 +30,7 @@ export const projectsData: ProjectItem[] = [
   },
   {
     id: '4',
-    category: 'academic',
+    category: 'academic-project',
     title: 'AssessPro - Sistem Layanan Assessment Klien',
     meta: 'UAS Semester 4 · Android Native (Kotlin), Firebase & JavaMail',
     desc: 'Aplikasi mobile Android Native untuk proses rekrutmen & assessment test digital. Dilengkapi Portal Admin HRD (monitoring real-time) & Portal Peserta Test.',
@@ -39,7 +39,7 @@ export const projectsData: ProjectItem[] = [
   },
   {
     id: '5',
-    category: 'academic',
+    category: 'academic-project',
     title: 'Sinaran Damkar - Desktop Application',
     meta: 'UAS GUI Project · Java Swing GUI, NetBeans & MySQL',
     desc: 'Aplikasi desktop GUI manajemen tanggap darurat pemadam kebakaran untuk mengelola laporan insiden dan alokasi armada.',
@@ -48,7 +48,7 @@ export const projectsData: ProjectItem[] = [
   },
   {
     id: '6',
-    category: 'web-frontend',
+    category: 'my-learning-projects',
     title: 'Web Article Bandung City',
     meta: 'Dicoding Project · HTML5 & CSS3',
     desc: 'Proyek artikel tentang kota Bandung, menyoroti kebudayaan unik, kelezatan kuliner, serta destinasi wisata dengan layout responsif.',
@@ -57,7 +57,7 @@ export const projectsData: ProjectItem[] = [
   },
   {
     id: '7',
-    category: 'web-frontend',
+    category: 'my-learning-projects',
     title: 'Web TiketKeun',
     meta: 'Frontend Project · HTML, JavaScript & Tailwind CDN',
     desc: 'Aplikasi web interaktif untuk pemesanan tiket penerbangan, pencarian jadwal maskapai, dan simulasi transaksi.',
@@ -66,7 +66,7 @@ export const projectsData: ProjectItem[] = [
   },
   {
     id: '8',
-    category: 'web-frontend',
+    category: 'my-learning-projects',
     title: 'Web Social-links-profile',
     meta: 'Frontend Mentor Challenge · HTML & CSS',
     desc: 'Kartu profil sosial responsif dengan efek hover mikro-interaksi dan desain bertema gelap.',
@@ -75,7 +75,7 @@ export const projectsData: ProjectItem[] = [
   },
   {
     id: '9',
-    category: 'web-frontend',
+    category: 'my-learning-projects',
     title: 'QR Code Component',
     meta: 'Frontend Mentor Challenge · HTML & Flexbox',
     desc: 'Komponen QR Code responsif yang bersih dan presisi menggunakan CSS Flexbox.',
@@ -84,7 +84,7 @@ export const projectsData: ProjectItem[] = [
   },
   {
     id: '10',
-    category: 'web-frontend',
+    category: 'my-learning-projects',
     title: 'Landing Page - Dicoding Indonesia',
     meta: 'Dicoding Bootcamp Project · HTML & CSS',
     desc: 'Landing page showcase informasi program dan kurikulum pembelajaran Dicoding Indonesia.',
@@ -93,7 +93,7 @@ export const projectsData: ProjectItem[] = [
   },
   {
     id: '11',
-    category: 'web-frontend',
+    category: 'my-learning-projects',
     title: 'Ruang Belajar Platform',
     meta: 'Web Platform · HTML & CSS',
     desc: 'Website platform edukasi online dengan bagian program, testimoni, dan penataan grid yang rapi.',
@@ -102,7 +102,7 @@ export const projectsData: ProjectItem[] = [
   },
   {
     id: '12',
-    category: 'web-frontend',
+    category: 'my-learning-projects',
     title: 'Todoapps — Dicoding Project',
     meta: 'DOM App · Vanilla JS & LocalStorage',
     desc: 'Aplikasi Todo list dengan fitur penandaan tugas selesai, hapus, dan sinkronisasi browser LocalStorage.',
@@ -111,7 +111,7 @@ export const projectsData: ProjectItem[] = [
   },
   {
     id: '13',
-    category: 'web-frontend',
+    category: 'my-learning-projects',
     title: 'Bookshelf App — Dicoding Project',
     meta: 'DOM App · Vanilla JS & LocalStorage',
     desc: 'Aplikasi manajemen rak buku digital dengan pencarian judul dan pemindahan kategori bacaan.',

@@ -7,7 +7,7 @@ import TiltCard from '@/components/TiltCard';
 import { projectsData } from '@/data/projects';
 
 export default function Projects() {
-  const [filter, setFilter] = useState<'all' | 'work-capstone' | 'web-frontend' | 'academic'>('all');
+  const [filter, setFilter] = useState<'all' | 'internship-capstone' | 'my-learning-projects' | 'academic-project'>('all');
 
   const filteredProjects = filter === 'all' ? projectsData : projectsData.filter((p) => p.category === filter);
 
@@ -30,25 +30,25 @@ export default function Projects() {
             All Projects ({projectsData.length})
           </button>
           <button
-            className={`filter-btn ${filter === 'work-capstone' ? 'active' : ''}`}
-            onClick={() => setFilter('work-capstone')}
+            className={`filter-btn ${filter === 'internship-capstone' ? 'active' : ''}`}
+            onClick={() => setFilter('internship-capstone')}
             suppressHydrationWarning
           >
-            💼 Magang &amp; Capstone
+            Internship &amp; Capstone
           </button>
           <button
-            className={`filter-btn ${filter === 'web-frontend' ? 'active' : ''}`}
-            onClick={() => setFilter('web-frontend')}
+            className={`filter-btn ${filter === 'my-learning-projects' ? 'active' : ''}`}
+            onClick={() => setFilter('my-learning-projects')}
             suppressHydrationWarning
           >
-            🌐 Web &amp; Frontend Apps
+            My Learning Projects
           </button>
           <button
-            className={`filter-btn ${filter === 'academic' ? 'active' : ''}`}
-            onClick={() => setFilter('academic')}
+            className={`filter-btn ${filter === 'academic-project' ? 'active' : ''}`}
+            onClick={() => setFilter('academic-project')}
             suppressHydrationWarning
           >
-            🎓 Kampus / UAS
+            Academic Projects
           </button>
         </div>
 
