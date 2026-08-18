@@ -1,12 +1,14 @@
 import type { Metadata } from 'next';
 import { Plus_Jakarta_Sans, Caveat, Kalam, Fira_Code } from 'next/font/google';
 import './globals.css';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import PaperPlaneRunner from '@/components/PaperPlaneRunner';
-import InteractiveBackground from '@/components/InteractiveBackground';
-import CustomCursor from '@/components/CustomCursor';
-import ScrollObserver from '@/components/ScrollObserver';
+import {
+  Navbar,
+  Footer,
+  PaperPlaneRunner,
+  InteractiveBackground,
+  CustomCursor,
+  ScrollObserver,
+} from '@/components';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],

@@ -22,10 +22,10 @@ export default function About() {
               <Image
                 src="/assets/images/profile/foto-about.png"
                 alt="Aditya Beckham Profile"
-                width={300}
-                height={350}
+                width={200}
+                height={200}
                 className="profile-img"
-                style={{ width: '100%', height: 'auto', borderRadius: '16px' }}
+                style={{ width: '100%', height: '100', borderRadius: '16px' }}
               />
               <div className="image-caption">Hi! My name is Aditya Beckham</div>
             </TiltCard>

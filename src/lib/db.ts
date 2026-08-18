@@ -1,13 +1,7 @@
 import { neon } from '@neondatabase/serverless';
+import { StickyNote } from '@/types';
 
-export interface StickyNote {
-  id: string;
-  author: string;
-  message: string;
-  color: string;
-  likes: number;
-  created_at?: string;
-}
+export type { StickyNote };
 
 // Fallback in-memory store if NEON_DATABASE_URL is not configured yet
 const memoryNotesStore: StickyNote[] = [

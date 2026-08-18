@@ -10,11 +10,13 @@ const experiences = [
     company: 'Mahreen Indonesia | Internship',
     date: 'Jun 2026 - Present • 2 mos | Remote',
     desc: [
-      'Design UX deliverables, including sitemap, user flow, wireframes, design systems, and interactive prototypes.',
-      'Develop responsive landing pages and company profile websites using modern frontend technologies React + Tailwind CSS.',
-      'Contribute to branding initiatives by building digital platforms landing page for Mahreen Indonesia and its ecosystem.'
+      'Designed UI/UX deliverables including Sitemap, User Flow, Wireframe, Design System.',
+      'Contributed to the design of Mahreen Indonesia’s company profile and digital ecosystem websites.',
+      'Contributed to frontend implementation and UI development for Mahreen Studio.',
+      'Designed Admin Portal, Client Portal, Login, Pricing, Consultation, and Payment flows.',
+      'Collaborated with founders and the frontend team on design handoff, implementation, and UI improvements.'
     ],
-    tags: ['React.js', 'Tailwind CSS', 'UI/UX Design']
+    tags: ['React.js', 'Tailwind CSS', 'Figma', 'Git', 'Github']
   },
   {
     num: '02',
@@ -27,7 +29,7 @@ const experiences = [
       'Frontend Integration & Git Workflow: Defined API contracts and streamlined integration using GitHub branch workflows.',
       'Agile Collaboration: Worked closely with AI Engineers & Data Scientists in Agile Scrum sprints.'
     ],
-    tags: ['Node.js', 'Express.js', 'PostgreSQL', 'Supabase', 'Agile Scrum']
+    tags: ['Node.js', 'Express.js', 'PostgreSQL', 'Supabase', 'Git', 'Github', 'Postman', 'Railway', 'Agile Scrum']
   },
   {
     num: '03',
@@ -52,7 +54,7 @@ const experiences = [
       'Built responsive web interfaces using HTML, CSS, and JavaScript following modern web practices.',
       'Applied clean coding principles, structured programming, and client-side web architecture.'
     ],
-    tags: ['HTML5', 'CSS3', 'JavaScript', 'Web Architecture']
+    tags: ['HTML5', 'CSS3', 'JavaScript',]
   }
 ];
 
