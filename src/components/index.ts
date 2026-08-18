@@ -15,3 +15,4 @@ export { default as CustomCursor } from './CustomCursor';
 export { default as InteractiveBackground } from './InteractiveBackground';
 export { default as PaperPlaneRunner } from './PaperPlaneRunner';
 export { default as ScrollObserver } from './ScrollObserver';
+export { default as DraggableStickyNote } from './DraggableStickyNote';

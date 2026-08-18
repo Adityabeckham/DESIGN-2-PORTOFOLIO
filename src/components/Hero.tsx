@@ -97,7 +97,7 @@ export default function Hero() {
 
         <div className="badge hero-badge">
           <span className="status-dot" />
-          <span>Junior Web Developer · Universitas Teknologi Bandung</span>
+          <span>Full-Stack &amp; Frontend Web Developer · UTB Student</span>
         </div>
 
         <h1 className="hero-title">
@@ -108,9 +108,9 @@ export default function Hero() {
         </h1>
 
         <p className="hero-description">
-          I'm Aditya Beckham Junior, a Web Developer with experience in frontend web design. I enjoy fun and engaging
-          web interfaces, team collaboration, and creating meaningful products. I value simple content structure, clean
-          design patterns, and well-thought-out interactions.
+          Web Developer with practical experience in building modern web applications using React, Next.js, Node.js, and PostgreSQL. 
+          Currently strengthening skills through industry internships (Mahreen Indonesia), intensive bootcamps (DBS Foundation &amp; IDCamp), 
+          and real-world full-stack capstone projects.
         </p>
 
         <div className="hero-actions">

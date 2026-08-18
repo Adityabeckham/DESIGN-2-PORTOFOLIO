@@ -8,26 +8,42 @@ const memoryNotesStore: StickyNote[] = [
   {
     id: 'demo-note-1',
     author: 'Zafarsyah',
-    message: 'Desain scrapbook-nya keren banget bro! Efek pesawat kertas sama interaktif fisika-nya berasa hidup banget 🔥',
+    message: 'Desain scrapbook-nya unik banget bro! Pas nyobain drag card sama sticky note-nya seru beneran 👍',
     color: 'yellow',
-    likes: 12,
-    created_at: new Date(Date.now() - 3600000 * 5).toISOString()
+    likes: 14,
+    created_at: new Date(Date.now() - 3600000 * 2).toISOString()
   },
   {
     id: 'demo-note-2',
-    author: 'DBS Foundation Mentor',
-    message: 'Solid full-stack execution & capstone implementation! Keep pushing your boundaries with React & Neon DB 🚀',
+    author: 'Rian (Mahasiswa UTB)',
+    message: 'Wah, ternyata project kampusnya kaya AssessPro (Kotlin Native) & Damkar udah sejauh ini. Rapi euy!',
     color: 'blue',
-    likes: 8,
-    created_at: new Date(Date.now() - 3600000 * 12).toISOString()
+    likes: 9,
+    created_at: new Date(Date.now() - 3600000 * 6).toISOString()
   },
   {
     id: 'demo-note-3',
+    author: 'DBS Foundation Mentor',
+    message: 'Solid full-stack execution pada MyFinance & REST API OpenJob V1! Kelihatan banget perkembangan skill belajarnya 🚀',
+    color: 'green',
+    likes: 12,
+    created_at: new Date(Date.now() - 3600000 * 18).toISOString()
+  },
+  {
+    id: 'demo-note-4',
     author: 'Sarah (Tech Recruiter)',
-    message: 'Impressive portfolio layout and clean code architecture! Open for a quick chat regarding Frontend Web roles? 💼',
+    message: 'Portofolio simple tapi project-nya lumayan banyak dan berkonteks nyata. Open for a junior web dev role? 💼',
     color: 'pink',
-    likes: 15,
-    created_at: new Date(Date.now() - 3600000 * 24).toISOString()
+    likes: 18,
+    created_at: new Date(Date.now() - 3600000 * 28).toISOString()
+  },
+  {
+    id: 'demo-note-5',
+    author: 'Dimas (Visitor)',
+    message: 'UI-nya enak banget buat dilihat. Landing page Tuku Coffee dapet banget feel scrollytelling-nya 🔥',
+    color: 'cream',
+    likes: 7,
+    created_at: new Date(Date.now() - 3600000 * 40).toISOString()
   }
 ];
 

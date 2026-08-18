@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { StickyNote } from '@/lib/db';
 import JelloTitle from '@/components/JelloTitle';
+import DraggableStickyNote from '@/components/DraggableStickyNote';
 
 export default function GuestbookBoard() {
   const [notes, setNotes] = useState<StickyNote[]>([]);
@@ -223,43 +224,21 @@ export default function GuestbookBoard() {
                 )}
 
                 {/* Existing Saved Notes from Neon DB */}
-                {notes.map((note, idx) => {
-                  const rotationDeg = (idx % 2 === 0 ? 1 : -1) * ((idx * 3) % 7 + 2);
-                  return (
-                    <div
-                      key={note.id}
-                      className={`sticky-note-card note-theme-${note.color}`}
-                      style={{ transform: `rotate(${rotationDeg}deg)` }}
-                    >
-                      <div>
-                        <p className="note-text-display">{note.message}</p>
-                      </div>
-                      <div>
-                        <div className="note-author-display">— {note.author}</div>
-                        <div className="note-footer-actions">
-                          <button
-                            className="like-note-btn"
-                            onClick={() => handleLike(note.id)}
-                            title="Sukai note ini"
-                            suppressHydrationWarning
-                          >
-                            ❤️ <span>{note.likes}</span>
-                          </button>
-                          <button
-                            className="delete-note-btn"
-                            onClick={() => handleDelete(note.id)}
-                            title="Hapus note"
-                            suppressHydrationWarning
-                          >
-                            🗑️
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
+                {notes.map((note, idx) => (
+                  <DraggableStickyNote
+                    key={note.id}
+                    note={note}
+                    index={idx}
+                    onLike={handleLike}
+                    onDelete={handleDelete}
+                  />
+                ))}
               </div>
             )}
+
+            <div style={{ textAlign: 'center', marginTop: '16px', fontSize: '0.85rem', color: 'var(--color-text-muted)' }}>
+              🖐️ <strong>Tip:</strong> Drag &amp; reposition any sticky note around the corkboard!
+            </div>
           </div>
         </div>
       </div>

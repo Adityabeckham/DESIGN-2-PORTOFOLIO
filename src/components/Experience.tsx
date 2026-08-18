@@ -8,7 +8,7 @@ const experiences = [
     num: '01',
     role: 'Web Development Intern',
     company: 'Mahreen Indonesia | Internship',
-    date: 'Jun 2026 - Present • 2 mos | Remote',
+    date: 'Jun 2026 - Present • 3 mos | Remote',
     desc: [
       'Designed UI/UX deliverables including Sitemap, User Flow, Wireframe, Design System.',
       'Contributed to the design of Mahreen Indonesia’s company profile and digital ecosystem websites.',

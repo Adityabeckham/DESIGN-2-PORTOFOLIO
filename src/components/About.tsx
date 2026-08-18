@@ -27,7 +27,7 @@ export default function About() {
                 className="profile-img"
                 style={{ width: '100%', height: '100', borderRadius: '16px' }}
               />
-              <div className="image-caption">Hi! My name is Aditya Beckham</div>
+              <div className="image-caption">Still Learning & Improving</div>
             </TiltCard>
             <div className="about-badges">
               <span className="badge">🎓 Universitas Teknologi Bandung</span>
@@ -39,25 +39,23 @@ export default function About() {
 
           <div className="about-text reveal">
             <p className="lead-text">
-              Hi! My name is Aditya Beckham. I'm a junior web developer.
+              Hi! My name is Aditya Beckham. I'm a Web Developer &amp; Informatics Engineering Student at Universitas Teknologi Bandung.
             </p>
             <p>
-              I am currently a student at Universitas Teknologi Bandung. Since the beginning of college, I’ve been
-              interested in learning web development and made my first website in the first semester.
+              Since starting my journey in web development, I’ve been focused on building responsive user interfaces and robust full-stack applications. 
+              I enjoy learning through hands-on practice — from building personal &amp; academic projects to participating in intensive bootcamps and industry internships.
             </p>
             <p>
-              Although I don’t have extensive professional work experience yet, I’ve been building various personal &amp;
-              bootcamp projects since I started learning. My interest in web development keeps me motivated to continue
-              learning and exploring new technologies in the field.
+              My goal is to craft meaningful digital products with clean code architecture, smooth interactions, and great user experience. I am always open to new learning opportunities and professional collaborations.
             </p>
 
             <div className="stats-grid">
               <div className="stat-item">
-                <h3>19+</h3>
+                <h3>18+</h3>
                 <p>Projects Developed</p>
               </div>
               <div className="stat-item">
-                <h3>13+</h3>
+                <h3>12+</h3>
                 <p>Certificates Earned</p>
               </div>
               <div className="stat-item">

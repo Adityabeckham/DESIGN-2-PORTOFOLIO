@@ -7,7 +7,7 @@ import TiltCard from '@/components/TiltCard';
 import { projectsData } from '@/data/projects';
 
 export default function Projects() {
-  const [filter, setFilter] = useState<'all' | 'fullstack' | 'web' | 'java'>('all');
+  const [filter, setFilter] = useState<'all' | 'work-capstone' | 'web-frontend' | 'academic'>('all');
 
   const filteredProjects = filter === 'all' ? projectsData : projectsData.filter((p) => p.category === filter);
 
@@ -15,7 +15,7 @@ export default function Projects() {
     <section id="projects" className="work-section">
       <div className="container">
         <div className="section-header reveal">
-          <p className="section-subtitle">my recent work</p>
+          <p className="section-subtitle">featured portfolio work</p>
           <h2 className="section-title">
             <JelloTitle text="</Projects> 🚀" />
           </h2>
@@ -27,28 +27,28 @@ export default function Projects() {
             onClick={() => setFilter('all')}
             suppressHydrationWarning
           >
-            All Projects
+            All Projects ({projectsData.length})
           </button>
           <button
-            className={`filter-btn ${filter === 'fullstack' ? 'active' : ''}`}
-            onClick={() => setFilter('fullstack')}
+            className={`filter-btn ${filter === 'work-capstone' ? 'active' : ''}`}
+            onClick={() => setFilter('work-capstone')}
             suppressHydrationWarning
           >
-            Full-Stack &amp; APIs
+            💼 Magang &amp; Capstone
           </button>
           <button
-            className={`filter-btn ${filter === 'web' ? 'active' : ''}`}
-            onClick={() => setFilter('web')}
+            className={`filter-btn ${filter === 'web-frontend' ? 'active' : ''}`}
+            onClick={() => setFilter('web-frontend')}
             suppressHydrationWarning
           >
-            Web &amp; Landing Pages
+            🌐 Web &amp; Frontend Apps
           </button>
           <button
-            className={`filter-btn ${filter === 'java' ? 'active' : ''}`}
-            onClick={() => setFilter('java')}
+            className={`filter-btn ${filter === 'academic' ? 'active' : ''}`}
+            onClick={() => setFilter('academic')}
             suppressHydrationWarning
           >
-            Java &amp; Tools
+            🎓 Kampus / UAS
           </button>
         </div>
 

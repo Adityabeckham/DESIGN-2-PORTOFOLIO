@@ -9,7 +9,7 @@ export interface StickyNote {
 
 export interface ProjectItem {
   id: string;
-  category: 'fullstack' | 'web' | 'java';
+  category: 'work-capstone' | 'web-frontend' | 'academic';
   title: string;
   meta: string;
   desc: string;
