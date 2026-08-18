@@ -2,6 +2,8 @@
 
 import React from 'react';
 import Image from 'next/image';
+import JelloTitle from '@/components/JelloTitle';
+import TiltCard from '@/components/TiltCard';
 
 export default function About() {
   return (
@@ -9,12 +11,14 @@ export default function About() {
       <div className="container">
         <div className="section-header reveal">
           <p className="section-subtitle">get to know me</p>
-          <h2 className="section-title jello-title">&lt;/AboutMe&gt; ✨</h2>
+          <h2 className="section-title">
+            <JelloTitle text="</AboutMe> ✨" />
+          </h2>
         </div>
 
         <div className="about-content">
           <div className="about-image-wrapper reveal">
-            <div className="about-image-card">
+            <TiltCard className="about-image-card">
               <Image
                 src="/assets/images/profile/foto-about.png"
                 alt="Aditya Beckham Profile"
@@ -24,7 +28,7 @@ export default function About() {
                 style={{ width: '100%', height: 'auto', borderRadius: '16px' }}
               />
               <div className="image-caption">Hi! My name is Aditya Beckham</div>
-            </div>
+            </TiltCard>
             <div className="about-badges">
               <span className="badge">🎓 Universitas Teknologi Bandung</span>
               <span className="badge" style={{ color: '#3d6b2e' }}>

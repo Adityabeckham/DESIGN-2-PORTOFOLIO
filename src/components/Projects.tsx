@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import JelloTitle from '@/components/JelloTitle';
+import TiltCard from '@/components/TiltCard';
 
 interface Project {
   id: string;
@@ -135,7 +137,9 @@ export default function Projects() {
       <div className="container">
         <div className="section-header reveal">
           <p className="section-subtitle">my recent work</p>
-          <h2 className="section-title jello-title">&lt;/Projects&gt; 🚀</h2>
+          <h2 className="section-title">
+            <JelloTitle text="</Projects> 🚀" />
+          </h2>
         </div>
 
         <div className="filter-tabs reveal">
@@ -167,7 +171,7 @@ export default function Projects() {
 
         <div className="work-grid reveal">
           {filteredProjects.map((proj) => (
-            <div key={proj.id} className="project-card" data-category={proj.category}>
+            <TiltCard key={proj.id} className="project-card" data-category={proj.category}>
               <div className="project-image">
                 <Image
                   src={proj.image}
@@ -194,7 +198,7 @@ export default function Projects() {
                   )}
                 </div>
               </div>
-            </div>
+            </TiltCard>
           ))}
         </div>
       </div>

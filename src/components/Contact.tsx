@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import JelloTitle from '@/components/JelloTitle';
 
 export default function Contact() {
   return (
@@ -8,7 +9,9 @@ export default function Contact() {
       <div className="container">
         <div className="section-header reveal">
           <p className="section-subtitle">let's build something together</p>
-          <h2 className="section-title jello-title">&lt;/Contact&gt; 💬</h2>
+          <h2 className="section-title">
+            <JelloTitle text="</Contact> 💬" />
+          </h2>
         </div>
 
         <div className="contact-grid reveal">

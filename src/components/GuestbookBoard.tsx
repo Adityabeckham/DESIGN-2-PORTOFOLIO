@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { StickyNote } from '@/lib/db';
+import JelloTitle from '@/components/JelloTitle';
 
 export default function GuestbookBoard() {
   const [notes, setNotes] = useState<StickyNote[]>([]);
@@ -85,7 +86,9 @@ export default function GuestbookBoard() {
       <div className="container">
         <div className="section-header reveal">
           <p className="section-subtitle">visitor corkboard</p>
-          <h2 className="section-title jello-title">&lt;/Guestbook&gt; 📌</h2>
+          <h2 className="section-title">
+            <JelloTitle text="</Guestbook> 📌" />
+          </h2>
         </div>
 
         <div className="corkboard-frame reveal">

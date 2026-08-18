@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect } from 'react';
 import Image from 'next/image';
+import JelloTitle from '@/components/JelloTitle';
 
 const skills = [
   { name: 'HTML', icon: '/assets/images/skills/html-5.png' },
@@ -73,7 +74,9 @@ export default function Skills() {
       <div className="container">
         <div className="section-header reveal">
           <p className="section-subtitle">my skills &amp; toolbox</p>
-          <h2 className="section-title jello-title">&lt;/Skills&gt; 🛠️</h2>
+          <h2 className="section-title">
+            <JelloTitle text="</Skills> 🛠️" />
+          </h2>
         </div>
 
         <div className="sticker-board-wrapper reveal">

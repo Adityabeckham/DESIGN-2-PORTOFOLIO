@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import JelloTitle from '@/components/JelloTitle';
+import TiltCard from '@/components/TiltCard';
 
 interface Certificate {
   id: string;
@@ -33,12 +35,14 @@ export default function Certificates() {
       <div className="container">
         <div className="section-header reveal">
           <p className="section-subtitle">credentials &amp; licenses</p>
-          <h2 className="section-title jello-title">&lt;/Certificates&gt; 📜</h2>
+          <h2 className="section-title">
+            <JelloTitle text="</Certificates> 📜" />
+          </h2>
         </div>
 
         <div className="certificates-grid reveal">
           {certs.map((cert) => (
-            <div
+            <TiltCard
               key={cert.id}
               className="certificate-card"
               onClick={() => setSelectedCert(cert)}
@@ -57,7 +61,7 @@ export default function Certificates() {
                 <h4 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--color-text-primary)' }}>{cert.title}</h4>
                 <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)' }}>{cert.issuer}</p>
               </div>
-            </div>
+            </TiltCard>
           ))}
         </div>
       </div>

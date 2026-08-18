@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect } from 'react';
 import Image from 'next/image';
+import JelloTitle from '@/components/JelloTitle';
 
 export default function Hero() {
   const card1Ref = useRef<HTMLDivElement | null>(null);
@@ -101,8 +102,8 @@ export default function Hero() {
 
         <h1 className="hero-title">
           Hello Everyone <span className="wave">👋</span>, I'm <br />
-          <span className="highlight glitch-text jello-title" data-text="Aditya Beckham!">
-            Aditya Beckham!
+          <span className="highlight glitch-text">
+            <JelloTitle text="Aditya Beckham!" dataText="Aditya Beckham!" />
           </span>
         </h1>
 

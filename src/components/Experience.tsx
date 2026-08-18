@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import JelloTitle from '@/components/JelloTitle';
 
 const experiences = [
   {
@@ -61,7 +62,9 @@ export default function Experience() {
       <div className="container">
         <div className="section-header reveal">
           <p className="section-subtitle">career &amp; learning path</p>
-          <h2 className="section-title jello-title">&lt;/Experience&gt; 💼</h2>
+          <h2 className="section-title">
+            <JelloTitle text="</Experience> 💼" />
+          </h2>
         </div>
 
         <div className="timeline">
