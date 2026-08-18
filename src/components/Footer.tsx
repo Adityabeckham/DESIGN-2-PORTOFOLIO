@@ -9,15 +9,16 @@ export default function Footer() {
 
   return (
     <footer className="site-footer">
-      <div className="container" style={{ textAlign: 'center', padding: '30px 0' }}>
-        <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>
-          Designed &amp; Built with React (Next.js) &amp; Neon Postgres DB by <strong>Aditya Beckham</strong> © 2026
-        </p>
+      <div className="container footer-container">
+        <p className="copyright">Aditya Beckham © 2026 · Junior Web Developer</p>
+        <div style={{ display: 'flex', gap: '16px', fontSize: '0.85rem', color: 'var(--color-text-secondary)', alignItems: 'center' }}>
+          <a href="#home" onClick={scrollToTop}>
+            Back to Top ↑
+          </a>
+          <span>•</span>
+          <a href="#guestbook">Pin a Sticky Note 📌</a>
+        </div>
       </div>
-
-      <button id="back-to-top" onClick={scrollToTop} aria-label="Back to Top">
-        ↑
-      </button>
     </footer>
   );
 }

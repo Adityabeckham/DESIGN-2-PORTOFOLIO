@@ -91,6 +91,7 @@ export default function Navbar() {
               onClick={toggleAudio}
               title={isPlaying ? 'Pause background music' : 'Play background music'}
               aria-label="Toggle Audio"
+              suppressHydrationWarning
             >
               {isPlaying ? '🔊' : '🎵'}
             </button>
@@ -99,6 +100,7 @@ export default function Navbar() {
               onClick={toggleTheme}
               title="Toggle Light/Dark Theme"
               aria-label="Toggle Theme"
+              suppressHydrationWarning
             >
               <span id="theme-icon">{theme === 'light' ? '🌙' : '☀️'}</span>
             </button>
@@ -106,6 +108,7 @@ export default function Navbar() {
               className="mobile-menu-btn"
               onClick={() => setIsDrawerOpen(true)}
               aria-label="Open Navigation Menu"
+              suppressHydrationWarning
             >
               ☰
             </button>

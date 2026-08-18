@@ -146,24 +146,28 @@ export default function Projects() {
           <button
             className={`filter-btn ${filter === 'all' ? 'active' : ''}`}
             onClick={() => setFilter('all')}
+            suppressHydrationWarning
           >
             All Projects
           </button>
           <button
             className={`filter-btn ${filter === 'fullstack' ? 'active' : ''}`}
             onClick={() => setFilter('fullstack')}
+            suppressHydrationWarning
           >
             Full-Stack &amp; APIs
           </button>
           <button
             className={`filter-btn ${filter === 'web' ? 'active' : ''}`}
             onClick={() => setFilter('web')}
+            suppressHydrationWarning
           >
             Web &amp; Landing Pages
           </button>
           <button
             className={`filter-btn ${filter === 'java' ? 'active' : ''}`}
             onClick={() => setFilter('java')}
+            suppressHydrationWarning
           >
             Java &amp; Tools
           </button>

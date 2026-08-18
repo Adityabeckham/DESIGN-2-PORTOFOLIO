@@ -84,7 +84,7 @@ export default function Skills() {
             <span style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--color-text-secondary)' }}>
               🖐️ Peel or drag any skill sticker around the board
             </span>
-            <button className="btn btn-secondary btn-sm" onClick={resetBoard}>
+            <button className="btn btn-secondary btn-sm" onClick={resetBoard} suppressHydrationWarning>
               🔄 Tidy Up Board
             </button>
           </div>
