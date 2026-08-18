@@ -50,7 +50,7 @@ export default function Certificates() {
                   alt={cert.title}
                   width={320}
                   height={200}
-                  style={{ width: '100%', height: '180px', objectFit: 'cover', borderRadius: '12px' }}
+                  style={{ width: '100%', height: 'auto', objectFit: 'cover', borderRadius: '12px' }}
                 />
               </div>
               <div className="cert-info" style={{ padding: '12px 4px' }}>

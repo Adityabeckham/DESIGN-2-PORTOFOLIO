@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import PaperPlaneRunner from '@/components/PaperPlaneRunner';
 import InteractiveBackground from '@/components/InteractiveBackground';
 import CustomCursor from '@/components/CustomCursor';
+import ScrollObserver from '@/components/ScrollObserver';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -90,6 +91,7 @@ export default function RootLayout({
       className={`paper-texture ${plusJakartaSans.variable} ${caveat.variable} ${kalam.variable} ${firaCode.variable}`}
     >
       <body>
+        <ScrollObserver />
         <InteractiveBackground />
         <PaperPlaneRunner />
         <CustomCursor />

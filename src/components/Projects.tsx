@@ -174,7 +174,7 @@ export default function Projects() {
                   alt={proj.title}
                   width={400}
                   height={220}
-                  style={{ width: '100%', height: '220px', objectFit: 'cover' }}
+                  style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
                 />
               </div>
               <div className="project-info">

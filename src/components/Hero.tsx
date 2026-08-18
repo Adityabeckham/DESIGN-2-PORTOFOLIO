@@ -132,7 +132,7 @@ export default function Hero() {
             width={220}
             height={140}
             priority
-            style={{ width: '100%', height: '140px', objectFit: 'cover', borderRadius: '12px' }}
+            style={{ width: '100%', height: 'auto', borderRadius: '12px' }}
           />
           <p>late-night coding sessions 💻</p>
         </div>
