@@ -8,18 +8,26 @@ const memoryNotesStore: StickyNote[] = [
   {
     id: 'demo-note-1',
     author: 'Zafarsyah',
-    message: 'Awesome portfolio design! Loved the paper plane and interactive physics! 🚀',
+    message: 'Desain scrapbook-nya keren banget bro! Efek pesawat kertas sama interaktif fisika-nya berasa hidup banget 🔥',
     color: 'yellow',
-    likes: 5,
-    created_at: new Date().toISOString()
+    likes: 12,
+    created_at: new Date(Date.now() - 3600000 * 5).toISOString()
   },
   {
     id: 'demo-note-2',
-    author: 'DBS Foundation Team',
-    message: 'Great full-stack skills and capstone execution! Keep building! 💪',
+    author: 'DBS Foundation Mentor',
+    message: 'Solid full-stack execution & capstone implementation! Keep pushing your boundaries with React & Neon DB 🚀',
     color: 'blue',
-    likes: 3,
-    created_at: new Date().toISOString()
+    likes: 8,
+    created_at: new Date(Date.now() - 3600000 * 12).toISOString()
+  },
+  {
+    id: 'demo-note-3',
+    author: 'Sarah (Tech Recruiter)',
+    message: 'Impressive portfolio layout and clean code architecture! Open for a quick chat regarding Frontend Web roles? 💼',
+    color: 'pink',
+    likes: 15,
+    created_at: new Date(Date.now() - 3600000 * 24).toISOString()
   }
 ];
 
