@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server';
 import { fetchAllNotes, insertNote, incrementNoteLikes, deleteNote } from '@/lib/db';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function GET() {
   try {
     const notes = await fetchAllNotes();
@@ -22,7 +25,7 @@ export async function POST(request: Request) {
     // Input sanitization & character limits
     const sanitizedAuthor = String(author).trim().substring(0, 80);
     const sanitizedMessage = String(message).trim().substring(0, 300);
-    const validColor = ['yellow', 'blue', 'green', 'pink'].includes(color) ? color : 'yellow';
+    const validColor = ['yellow', 'blue', 'green', 'pink', 'cream'].includes(color) ? color : 'yellow';
 
     const newNote = {
       id: `note-${Date.now()}-${Math.random().toString(36).substring(2, 7)}`,
