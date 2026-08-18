@@ -97,7 +97,7 @@ export default function Hero() {
 
         <div className="badge hero-badge">
           <span className="status-dot" />
-          <span>Full-Stack &amp; Frontend Web Developer · UTB Student</span>
+          <span>Full-Stack Web Developer</span>
         </div>
 
         <h1 className="hero-title">
@@ -108,8 +108,8 @@ export default function Hero() {
         </h1>
 
         <p className="hero-description">
-          Web Developer with practical experience in building modern web applications using React, Next.js, Node.js, and PostgreSQL. 
-          Currently strengthening skills through industry internships (Mahreen Indonesia), intensive bootcamps (DBS Foundation &amp; IDCamp), 
+          Web Developer with practical experience in building modern web applications using React, Node.js, Express.js, and PostgreSQL.
+          Currently strengthening skills through industry internships (Mahreen Indonesia), intensive bootcamps (DBS Foundation &amp; IDCamp),
           and real-world full-stack capstone projects.
         </p>
 
