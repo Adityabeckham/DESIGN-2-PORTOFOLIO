@@ -7,7 +7,7 @@ import TiltCard from '@/components/TiltCard';
 import { projectsData } from '@/data/projects';
 
 export default function Projects() {
-  const [filter, setFilter] = useState<'all' | 'internship-capstone' | 'my-learning-projects' | 'academic-project'>('all');
+  const [filter, setFilter] = useState<'all' | 'internship-work' | 'my-learning-projects' | 'academic-project' | 'freelance'>('all');
 
   const filteredProjects = filter === 'all' ? projectsData : projectsData.filter((p) => p.category === filter);
 
@@ -30,11 +30,11 @@ export default function Projects() {
             All Projects ({projectsData.length})
           </button>
           <button
-            className={`filter-btn ${filter === 'internship-capstone' ? 'active' : ''}`}
-            onClick={() => setFilter('internship-capstone')}
+            className={`filter-btn ${filter === 'internship-work' ? 'active' : ''}`}
+            onClick={() => setFilter('internship-work')}
             suppressHydrationWarning
           >
-            Internship &amp; Capstone
+            Internship Projects
           </button>
           <button
             className={`filter-btn ${filter === 'my-learning-projects' ? 'active' : ''}`}
@@ -49,6 +49,13 @@ export default function Projects() {
             suppressHydrationWarning
           >
             Academic Projects
+          </button>
+          <button
+            className={`filter-btn ${filter === 'freelance' ? 'active' : ''}`}
+            onClick={() => setFilter('freelance')}
+            suppressHydrationWarning
+          >
+            Freelance Projects
           </button>
         </div>
 

@@ -42,7 +42,7 @@ export default function About() {
               Hi! My name is Aditya Beckham. I'm a Web Developer &amp; Informatics Engineering Student at Universitas Teknologi Bandung.
             </p>
             <p>
-              Since starting my journey in web development, I’ve been focused on building responsive user interfaces and robust full-stack applications. 
+              Since starting my journey in web development, I’ve been focused on building responsive user interfaces and robust full-stack applications.
               I enjoy learning through hands-on practice — from building personal &amp; academic projects to participating in intensive bootcamps and industry internships.
             </p>
             <p>
@@ -66,12 +66,12 @@ export default function About() {
 
             <div className="values-section">
               <a
-                href="/assets/image/Aditya_Beckham_-_Front-end_Web_Developer.pdf"
+                href="/assets/image/CV_ADITYA_BECKHAM.pdf"
                 target="_blank"
                 download
                 className="btn btn-primary"
               >
-                📄 Download Official Resume
+                📄 Download CV
               </a>
             </div>
           </div>

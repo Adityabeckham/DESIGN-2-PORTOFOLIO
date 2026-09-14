@@ -95,11 +95,6 @@ export default function Hero() {
           <p>Hey! Hai! Hello! Welcome to my portfolio 👋</p>
         </div>
 
-        <div className="badge hero-badge">
-          <span className="status-dot" />
-          <span>Full-Stack Web Developer</span>
-        </div>
-
         <h1 className="hero-title">
           Hello Everyone <span className="wave">👋</span>, I'm <br />
           <span className="highlight glitch-text">
