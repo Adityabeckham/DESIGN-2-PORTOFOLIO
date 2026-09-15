@@ -34,7 +34,7 @@ export default function Projects() {
             onClick={() => setFilter('internship-work')}
             suppressHydrationWarning
           >
-            Internship Projects
+            Internship & Work Projects
           </button>
           <button
             className={`filter-btn ${filter === 'my-learning-projects' ? 'active' : ''}`}
