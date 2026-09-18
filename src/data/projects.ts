@@ -34,15 +34,25 @@ export const projectsData: ProjectItem[] = [
   {
     id: "4",
     category: "internship-work",
+    title: "Mahreen Indonesia Company",
+    meta: "Internship Project · React.js, TypeScript, Tailwind CSS, & Figma",
+    desc: "Build a digital home for Mahreen Indonesia.",
+    image: "/assets/images/projects/mahreen-indonesia.png",
+    link: "https://mahreenindonesia.com/",
+  },
+
+  {
+    id: "5",
+    category: "internship-work",
     title: "Tuku Coffee - Landing Page",
-    meta: "Commercial Showcase · Next.js 15 & Tailwind CSS",
+    meta: "Next.js 15 & Tailwind CSS",
     desc: "Landing page scrollytelling yang imersif, responsif, dan berperforma tinggi dengan animasi mikro yang mulus.",
     image: "/assets/images/projects/tuku-coffe.png",
     link: "https://tuku-coffe.vercel.app/",
   },
 
   {
-    id: "5",
+    id: "6",
     category: "academic-project",
     title: "AssessPro - Sistem Layanan Assessment Klien",
     meta: "UAS Semester 4 · Android Native (Kotlin), Firebase & JavaMail",
@@ -53,7 +63,7 @@ export const projectsData: ProjectItem[] = [
   },
 
   {
-    id: "6",
+    id: "7",
     category: "academic-project",
     title: "Sinaran Damkar - Desktop Application",
     meta: "UAS GUI Project · Java Swing GUI, NetBeans & MySQL",
@@ -63,7 +73,7 @@ export const projectsData: ProjectItem[] = [
   },
 
   {
-    id: "7",
+    id: "8",
     category: "my-learning-projects",
     title: "Web Article Bandung City",
     meta: "Dicoding Project · HTML5 & CSS3",
@@ -73,7 +83,7 @@ export const projectsData: ProjectItem[] = [
   },
 
   {
-    id: "8",
+    id: "9",
     category: "my-learning-projects",
     title: "Web TiketKeun",
     meta: "Frontend Project · HTML, JavaScript & Tailwind CDN",
@@ -83,7 +93,7 @@ export const projectsData: ProjectItem[] = [
   },
 
   {
-    id: "9",
+    id: "10",
     category: "my-learning-projects",
     title: "Web Social-links-profile",
     meta: "Frontend Mentor Challenge · HTML & CSS",
@@ -93,7 +103,7 @@ export const projectsData: ProjectItem[] = [
   },
 
   {
-    id: "10",
+    id: "11",
     category: "my-learning-projects",
     title: "QR Code Component",
     meta: "Frontend Mentor Challenge · HTML & CSS Flexbox",
@@ -103,7 +113,7 @@ export const projectsData: ProjectItem[] = [
   },
 
   {
-    id: "11",
+    id: "12",
     category: "my-learning-projects",
     title: "Landing Page - Dicoding Indonesia",
     meta: "Dicoding Bootcamp Project · HTML & CSS",
@@ -113,7 +123,7 @@ export const projectsData: ProjectItem[] = [
   },
 
   {
-    id: "12",
+    id: "13",
     category: "my-learning-projects",
     title: "Ruang Belajar Platform",
     meta: "Web Platform · HTML & CSS",
@@ -123,7 +133,7 @@ export const projectsData: ProjectItem[] = [
   },
 
   {
-    id: "13",
+    id: "14",
     category: "my-learning-projects",
     title: "Todoapps — Dicoding Project",
     meta: "DOM App · Vanilla JS & LocalStorage",
@@ -133,7 +143,7 @@ export const projectsData: ProjectItem[] = [
   },
 
   {
-    id: "14",
+    id: "15",
     category: "my-learning-projects",
     title: "Bookshelf App — Dicoding Project",
     meta: "DOM App · Vanilla JS & LocalStorage",
@@ -143,7 +153,7 @@ export const projectsData: ProjectItem[] = [
   },
 
   {
-    id: "15",
+    id: "16",
     category: "my-learning-projects",
     title: "Kalkulator Sederhana",
     meta: "Mini Project · HTML, CSS & Vanilla JS",
@@ -153,7 +163,7 @@ export const projectsData: ProjectItem[] = [
   },
 
   {
-    id: "16",
+    id: "17",
     category: "my-learning-projects",
     title: "Warung Burger & Pizza Landing",
     meta: "Frontend Project · HTML, CSS & Tailwind",
@@ -163,17 +173,17 @@ export const projectsData: ProjectItem[] = [
   },
 
   {
-    id: "17",
+    id: "18",
     category: "my-learning-projects",
     title: "Aplikasi Cek Presentase Baterai",
     meta: "Mini Project · HTML, CSS & Vanilla JS",
-    desc: "Aplikasi web ringan yang menampilkan persentase baterai perangkat secara real-time menggunakan Web Battery API.",
+    desc: "Aplikasi web ringan yang menampilkan persentase baterai perangkat secara real-time menggunakan Web Battery API (didukung di lingkungan Chromium secure context / Android; API dengan dukungan terbatas di browser modern).",
     image: "/assets/images/projects/presentase-baterai.webp",
     github: "https://github.com/Adityabeckham",
   },
 
   {
-    id: "18",
+    id: "19",
     category: "my-learning-projects",
     title: "Program Bensin UTS",
     meta: "UTS Project Semester 2 · Java, MySQL,NetBeans",
@@ -183,7 +193,7 @@ export const projectsData: ProjectItem[] = [
   },
 
   {
-    id: "19",
+    id: "20",
     category: "my-learning-projects",
     title: "Storage Game — Whack a Box",
     meta: "Mini Game Project · HTML, CSS & JS",
@@ -193,17 +203,17 @@ export const projectsData: ProjectItem[] = [
   },
 
   {
-    id: "20",
+    id: "21",
     category: "my-learning-projects",
     title: "Website Toko Fashion",
     meta: "Frontend Project · HTML, CSS & JS",
     desc: "Halaman toko fashion online dengan katalog produk, filter kategori, keranjang belanja sederhana, dan halaman checkout.",
-    image: "/assets/images/projects/tokofashion.png.png",
+    image: "/assets/images/projects/tokofashion.png",
     github: "https://github.com/Adityabeckham",
   },
 
   {
-    id: "21",
+    id: "22",
     category: "my-learning-projects",
     title: "Warung Sederhana POS",
     meta: "Mini Project Java · Java, MySQL,NetBeans",

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { Plus_Jakarta_Sans, Caveat, Kalam, Fira_Code } from 'next/font/google';
 import './globals.css';
 import {
@@ -90,8 +91,25 @@ export default function RootLayout({
     <html
       lang="en"
       data-theme="light"
+      suppressHydrationWarning
       className={`paper-texture ${plusJakartaSans.variable} ${caveat.variable} ${kalam.variable} ${firaCode.variable}`}
     >
+      <Script id="theme-init" strategy="beforeInteractive">
+        {`
+          (function () {
+            try {
+              var savedTheme = localStorage.getItem('portfolio-theme');
+              if (!savedTheme) {
+                var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                savedTheme = prefersDark ? 'dark' : 'light';
+              }
+              document.documentElement.setAttribute('data-theme', savedTheme);
+            } catch (err) {
+              /* no-op — SSR / private mode fallback handled by attribute default */
+            }
+          })();
+        `}
+      </Script>
       <body>
         <ScrollObserver />
         <InteractiveBackground />

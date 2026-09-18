@@ -1,8 +1,21 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+
+const ALL_SECTION_CLASSES = [
+  'section-active-home',
+  'section-active-about',
+  'section-active-skills',
+  'section-active-experience',
+  'section-active-projects',
+  'section-active-certificates',
+  'section-active-guestbook',
+  'section-active-contact',
+] as const;
 
 export default function ScrollObserver() {
+  const lastActiveRef = useRef<string | null>(null);
+
   useEffect(() => {
     const sections = document.querySelectorAll<HTMLElement>('section[id]');
     if (sections.length === 0) return;
@@ -10,25 +23,20 @@ export default function ScrollObserver() {
     const observerOptions = {
       root: null,
       rootMargin: '-20% 0px -40% 0px',
-      threshold: 0.2
+      threshold: 0.2,
     };
+
+    const bodyClassList = document.body.classList;
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const id = entry.target.getAttribute('id');
-          document.body.classList.remove(
-            'section-active-home',
-            'section-active-about',
-            'section-active-skills',
-            'section-active-experience',
-            'section-active-projects',
-            'section-active-certificates',
-            'section-active-guestbook',
-            'section-active-contact'
-          );
-          if (id) {
-            document.body.classList.add(`section-active-${id}`);
+          if (id && id !== lastActiveRef.current) {
+            const toRemove = ALL_SECTION_CLASSES.filter((c) => c !== `section-active-${id}`);
+            bodyClassList.remove(...toRemove);
+            bodyClassList.add(`section-active-${id}`);
+            lastActiveRef.current = id;
           }
         }
       });
@@ -39,6 +47,7 @@ export default function ScrollObserver() {
     return () => {
       sections.forEach((s) => observer.unobserve(s));
       observer.disconnect();
+      lastActiveRef.current = null;
     };
   }, []);
 

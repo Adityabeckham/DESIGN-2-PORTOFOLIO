@@ -1,53 +1,67 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
 
+function readInitialTheme(): 'light' | 'dark' {
+  if (typeof document !== 'undefined') {
+    const t = document.documentElement.getAttribute('data-theme') as 'light' | 'dark' | null;
+    if (t) return t;
+  }
+  if (typeof window !== 'undefined') {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  return 'light';
+}
+
 export default function Navbar() {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const [theme, setTheme] = useState<'light' | 'dark'>(readInitialTheme);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('portfolio-theme') as 'light' | 'dark' | null;
-    if (savedTheme) {
-      setTheme(savedTheme);
-      document.documentElement.setAttribute('data-theme', savedTheme);
-    } else {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const initialTheme = prefersDark ? 'dark' : 'light';
-      setTheme(initialTheme);
-      document.documentElement.setAttribute('data-theme', initialTheme);
+  const toggleTheme = useCallback(() => {
+    const current = (document.documentElement.getAttribute('data-theme') as 'light' | 'dark') || theme;
+    const nextTheme = current === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', nextTheme);
+    try {
+      localStorage.setItem('portfolio-theme', nextTheme);
+    } catch (err) {
+      console.warn('[Navbar] Failed to persist theme to localStorage:', err);
     }
+    setTheme(nextTheme);
+  }, [theme]);
 
-    audioRef.current = new Audio('/assets/audio/music.mp3');
-    audioRef.current.loop = true;
+  const toggleAudio = useCallback(async () => {
+    try {
+      if (!audioRef.current) {
+        audioRef.current = new Audio('/assets/audio/music.mp3');
+        audioRef.current.loop = true;
+        audioRef.current.volume = 0.5;
+      }
+      if (isPlaying) {
+        audioRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        await audioRef.current.play();
+        setIsPlaying(true);
+      }
+    } catch (err) {
+      console.warn('[Navbar] Audio playback failed (browser autoplay policy or missing audio file):', err);
+      setIsPlaying(false);
+    }
+  }, [isPlaying]);
 
+  useEffect(() => {
     return () => {
       if (audioRef.current) {
         audioRef.current.pause();
+        audioRef.current = null;
       }
     };
   }, []);
 
-  const toggleTheme = () => {
-    const nextTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(nextTheme);
-    document.documentElement.setAttribute('data-theme', nextTheme);
-    localStorage.setItem('portfolio-theme', nextTheme);
-  };
-
-  const toggleAudio = () => {
-    if (!audioRef.current) return;
-    if (isPlaying) {
-      audioRef.current.pause();
-      setIsPlaying(false);
-    } else {
-      audioRef.current.play().catch(() => {});
-      setIsPlaying(true);
-    }
-  };
+  const closeDrawer = () => setIsDrawerOpen(false);
 
   const navLinks = [
     { name: '</Home>', href: '#home' },
@@ -90,27 +104,27 @@ export default function Navbar() {
               className={`btn-icon ${isPlaying ? 'playing' : ''}`}
               onClick={toggleAudio}
               title={isPlaying ? 'Pause background music' : 'Play background music'}
-              aria-label="Toggle Audio"
-              suppressHydrationWarning
+              aria-label={isPlaying ? 'Pause background music' : 'Play background music'}
+              type="button"
             >
-              {isPlaying ? '🔊' : '🎵'}
+              <span aria-hidden="true">{isPlaying ? '🔊' : '🎵'}</span>
             </button>
             <button
               className="btn-icon"
               onClick={toggleTheme}
               title="Toggle Light/Dark Theme"
-              aria-label="Toggle Theme"
-              suppressHydrationWarning
+              aria-label={theme === 'light' ? 'Switch to Dark Theme' : 'Switch to Light Theme'}
+              type="button"
             >
-              <span id="theme-icon">{theme === 'light' ? '🌙' : '☀️'}</span>
+              <span aria-hidden="true">{theme === 'light' ? '🌙' : '☀️'}</span>
             </button>
             <button
               className="mobile-menu-btn"
               onClick={() => setIsDrawerOpen(true)}
               aria-label="Open Navigation Menu"
-              suppressHydrationWarning
+              type="button"
             >
-              ☰
+              <span aria-hidden="true">☰</span>
             </button>
           </div>
         </div>
@@ -119,12 +133,12 @@ export default function Navbar() {
       {/* Mobile Navigation Drawer */}
       <div
         className={`drawer-backdrop ${isDrawerOpen ? 'active' : ''}`}
-        onClick={() => setIsDrawerOpen(false)}
+        onClick={closeDrawer}
         aria-hidden="true"
       />
-      <aside className={`mobile-nav-drawer ${isDrawerOpen ? 'open' : ''}`} id="mobile-drawer">
+      <aside className={`mobile-nav-drawer ${isDrawerOpen ? 'open' : ''}`} id="mobile-drawer" aria-label="Mobile Navigation">
         <div className="mobile-nav-header">
-          <a href="#home" className="logo" onClick={() => setIsDrawerOpen(false)}>
+          <a href="#home" className="logo" onClick={closeDrawer}>
             <Image
               src="/assets/images/profile/foto.png"
               alt="Aditya Beckham Logo"
@@ -135,22 +149,54 @@ export default function Navbar() {
           </a>
           <button
             className="close-drawer-btn"
-            onClick={() => setIsDrawerOpen(false)}
+            onClick={closeDrawer}
             aria-label="Close Menu"
+            type="button"
+            style={{
+              background: 'none',
+              border: 'none',
+              fontSize: '1.4rem',
+              cursor: 'pointer',
+              padding: '6px 10px',
+              minWidth: '40px',
+              minHeight: '40px',
+              borderRadius: '8px',
+              touchAction: 'manipulation',
+            }}
           >
-            ✕
+            <span aria-hidden="true">✕</span>
           </button>
         </div>
         <ul className="mobile-nav-links">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <a href={link.href} onClick={() => setIsDrawerOpen(false)}>
+              <a href={link.href} onClick={closeDrawer}>
                 {link.name}
               </a>
             </li>
           ))}
         </ul>
-        <div style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', textAlign: 'center' }}>
+        <div className="drawer-actions" style={{ display: 'flex', gap: '10px', justifyContent: 'center', padding: '16px 0', borderTop: '1px solid var(--color-border)' }}>
+          <button
+            className={`btn-icon ${isPlaying ? 'playing' : ''}`}
+            onClick={() => { toggleAudio(); }}
+            title={isPlaying ? 'Pause music' : 'Play music'}
+            aria-label={isPlaying ? 'Pause background music' : 'Play background music'}
+            type="button"
+          >
+            <span aria-hidden="true">{isPlaying ? '🔊' : '🎵'}</span>
+          </button>
+          <button
+            className="btn-icon"
+            onClick={() => { toggleTheme(); }}
+            title="Toggle theme"
+            aria-label={theme === 'light' ? 'Switch to Dark Theme' : 'Switch to Light Theme'}
+            type="button"
+          >
+            <span aria-hidden="true">{theme === 'light' ? '🌙' : '☀️'}</span>
+          </button>
+        </div>
+        <div style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', textAlign: 'center', paddingTop: '12px' }}>
           Aditya Beckham © 2026
         </div>
       </aside>

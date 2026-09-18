@@ -4,7 +4,7 @@
    Style: Scrapbook Paper Texture & Interactive Ambient Engine (Ref: zafarsyah.my.id)
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fira+Code:wght@400;500;700&family=Kalam:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fira+Code:wght@400;500;700&family=Kalam:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
 
 :root {
   /* Color Tokens - Light / Warm Cream Canvas (Ref: zafarsyah.my.id) */
@@ -30,10 +30,10 @@
   --color-shadow-paper: 0 4px 15px rgba(42, 36, 29, 0.08);
 
   /* Fonts - Matching zafarsyah.my.id */
-  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --font-handwriting: 'Caveat', 'Kalam', cursive;
-  --font-mono: 'Fira Code', monospace;
-  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-handwriting: "Caveat", "Kalam", cursive;
+  --font-mono: "Fira Code", monospace;
+  --font-display: "Plus Jakarta Sans", sans-serif;
 
   /* Sticky Note Palette */
   --note-yellow: #f5c84b;
@@ -80,14 +80,27 @@
 }
 
 /* Base Body & Paper Grain Texture */
-html.paper-texture, body {
+html.paper-texture,
+body {
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
   font-family: var(--font-sans);
-  background-image: 
-    radial-gradient(circle at 15% 15%, rgba(223, 81, 59, 0.04) 0%, transparent 40%),
-    radial-gradient(circle at 85% 75%, rgba(63, 111, 176, 0.04) 0%, transparent 45%),
-    radial-gradient(circle at 50% 50%, rgba(245, 200, 75, 0.03) 0%, transparent 50%),
+  background-image:
+    radial-gradient(
+      circle at 15% 15%,
+      rgba(223, 81, 59, 0.04) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 85% 75%,
+      rgba(63, 111, 176, 0.04) 0%,
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(245, 200, 75, 0.03) 0%,
+      transparent 50%
+    ),
     url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
   background-attachment: fixed;
   overflow-x: hidden;
@@ -166,7 +179,10 @@ body.section-active-contact {
   border-radius: 50%;
   z-index: 9999;
   pointer-events: none;
-  transition: width 0.15s ease, height 0.15s ease, background-color 0.15s ease;
+  transition:
+    width 0.15s ease,
+    height 0.15s ease,
+    background-color 0.15s ease;
   box-shadow: 0 0 10px var(--color-text-accent);
 }
 
@@ -181,7 +197,11 @@ body.section-active-contact {
   border-radius: 50%;
   z-index: 9998;
   pointer-events: none;
-  transition: width 0.25s ease, height 0.25s ease, opacity 0.2s ease, border-color 0.2s ease;
+  transition:
+    width 0.25s ease,
+    height 0.25s ease,
+    opacity 0.2s ease,
+    border-color 0.2s ease;
   opacity: 0.6;
 }
 
@@ -200,7 +220,6 @@ body.section-active-contact {
 }
 
 @media (max-width: 992px) {
-
   .cursor-inner,
   .cursor-outer {
     display: none !important;
@@ -227,16 +246,34 @@ body {
   color: var(--color-text-primary);
   line-height: 1.6;
   overflow-x: hidden;
-  transition: background-color 0.8s ease, color var(--transition-normal);
+  transition:
+    background-color 0.8s ease,
+    color var(--transition-normal);
   background-image:
-    radial-gradient(circle at 15% 20%, rgba(223, 81, 59, 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 85% 80%, rgba(224, 159, 43, 0.05) 0%, transparent 40%);
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(223, 81, 59, 0.05) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(224, 159, 43, 0.05) 0%,
+      transparent 40%
+    );
 }
 
 [data-theme="dark"] body {
   background-image:
-    radial-gradient(circle at 15% 20%, rgba(255, 82, 59, 0.08) 0%, transparent 45%),
-    radial-gradient(circle at 85% 80%, rgba(128, 0, 255, 0.08) 0%, transparent 45%);
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(255, 82, 59, 0.08) 0%,
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(128, 0, 255, 0.08) 0%,
+      transparent 45%
+    );
 }
 
 a {
@@ -265,7 +302,12 @@ textarea {
   top: 0;
   left: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--color-text-accent), var(--color-text-highlight), #8000ff);
+  background: linear-gradient(
+    90deg,
+    var(--color-text-accent),
+    var(--color-text-highlight),
+    #8000ff
+  );
   z-index: 1001;
   width: 0%;
   transition: width 0.1s ease-out;
@@ -425,7 +467,9 @@ textarea {
 .reveal {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition:
+    opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .reveal.active {
@@ -458,7 +502,6 @@ textarea {
 }
 
 @keyframes pulse-dot {
-
   0%,
   100% {
     transform: scale(1);
@@ -488,16 +531,18 @@ textarea {
 }
 
 .btn::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -50%;
   left: -50%;
   width: 200%;
   height: 200%;
-  background: linear-gradient(45deg,
-      transparent 45%,
-      rgba(255, 255, 255, 0.25) 50%,
-      transparent 55%);
+  background: linear-gradient(
+    45deg,
+    transparent 45%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 55%
+  );
   transform: rotate(30deg) translateY(-100%);
   transition: transform 0.6s ease;
 }
@@ -546,6 +591,8 @@ textarea {
 .btn-icon {
   width: 42px;
   height: 42px;
+  min-width: 42px;
+  min-height: 42px;
   border-radius: 50%;
   display: inline-flex;
   align-items: center;
@@ -554,8 +601,14 @@ textarea {
   border: 1px solid var(--color-border);
   color: var(--color-text-primary);
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
   transition: all var(--transition-fast);
   box-shadow: 0 4px 12px var(--color-shadow);
+}
+
+.btn-icon:active {
+  transform: scale(0.94);
 }
 
 .btn-icon:hover {
@@ -606,7 +659,9 @@ textarea {
   border-bottom: 1px solid var(--color-border-subtle);
   z-index: 1000;
   padding: 12px 0;
-  transition: padding var(--transition-normal), background-color var(--transition-normal);
+  transition:
+    padding var(--transition-normal),
+    background-color var(--transition-normal);
 }
 
 .site-header.scrolled {
@@ -630,20 +685,26 @@ textarea {
   border-radius: 14px;
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
-  box-shadow: 0 4px 14px var(--color-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  box-shadow:
+    0 4px 14px var(--color-shadow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
   position: relative;
   overflow: hidden;
   transition: all var(--transition-normal);
 }
 
 .logo::after {
-  content: '';
+  content: "";
   position: absolute;
   top: -50%;
   left: -50%;
   width: 200%;
   height: 200%;
-  background: linear-gradient(135deg, rgba(223, 81, 59, 0.15), rgba(224, 159, 43, 0.15));
+  background: linear-gradient(
+    135deg,
+    rgba(223, 81, 59, 0.15),
+    rgba(224, 159, 43, 0.15)
+  );
   opacity: 0;
   transition: opacity var(--transition-fast);
   pointer-events: none;
@@ -733,7 +794,12 @@ textarea {
   color: var(--color-text-primary);
   font-size: 1.5rem;
   cursor: pointer;
-  padding: 4px;
+  padding: 8px;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 10px;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 /* Mobile Navigation Drawer */
@@ -907,7 +973,9 @@ textarea {
   border: 1px solid var(--color-border);
   cursor: grab;
   user-select: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
   z-index: 4;
 }
 
@@ -1170,7 +1238,7 @@ textarea {
 }
 
 .card-list li::before {
-  content: '▸';
+  content: "▸";
   position: absolute;
   left: 0;
   color: var(--color-text-accent);
@@ -1214,16 +1282,18 @@ textarea {
 }
 
 .certificate-card::after {
-  content: '';
+  content: "";
   position: absolute;
   top: -50%;
   left: -50%;
   width: 200%;
   height: 200%;
-  background: linear-gradient(45deg,
-      transparent 45%,
-      rgba(255, 255, 255, 0.15) 50%,
-      transparent 55%);
+  background: linear-gradient(
+    45deg,
+    transparent 45%,
+    rgba(255, 255, 255, 0.15) 50%,
+    transparent 55%
+  );
   transform: rotate(30deg) translateY(-100%);
   transition: transform 0.6s ease;
   pointer-events: none;
@@ -1410,7 +1480,9 @@ textarea {
   box-shadow: 0 10px 26px var(--color-shadow);
   display: flex;
   flex-direction: column;
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  transition:
+    transform var(--transition-normal),
+    box-shadow var(--transition-normal);
   word-break: break-word;
   position: relative;
 }
@@ -1584,11 +1656,14 @@ textarea {
 }
 
 .corkboard-frame {
-  background: #cbb493 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23cbb493"/><circle cx="20" cy="20" r="2" fill="%23b89e7c" opacity="0.4"/><circle cx="70" cy="50" r="3" fill="%23ab8f6c" opacity="0.3"/><circle cx="40" cy="80" r="1.5" fill="%239e815e" opacity="0.5"/></svg>');
+  background: #cbb493
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23cbb493"/><circle cx="20" cy="20" r="2" fill="%23b89e7c" opacity="0.4"/><circle cx="70" cy="50" r="3" fill="%23ab8f6c" opacity="0.3"/><circle cx="40" cy="80" r="1.5" fill="%239e815e" opacity="0.5"/></svg>');
   border: 14px solid #735035;
   border-radius: 24px;
   padding: 24px;
-  box-shadow: inset 0 6px 16px rgba(0, 0, 0, 0.35), 0 16px 40px var(--color-shadow);
+  box-shadow:
+    inset 0 6px 16px rgba(0, 0, 0, 0.35),
+    0 16px 40px var(--color-shadow);
   min-height: 600px;
   position: relative;
   overflow: hidden;
@@ -1613,7 +1688,9 @@ textarea {
   flex-direction: column;
   justify-content: space-between;
   position: relative;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
   animation: note-spawn 0.4s var(--transition-spring);
   word-break: break-word;
 }
@@ -1638,7 +1715,7 @@ textarea {
 
 /* Push Pin */
 .sticky-note-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 8px;
   left: 50%;
@@ -1647,7 +1724,9 @@ textarea {
   height: 13px;
   background: radial-gradient(circle at 30% 30%, #ff6b6b, #c0392b);
   border-radius: 50%;
-  box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.4), 0 3px 6px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    inset -2px -2px 4px rgba(0, 0, 0, 0.4),
+    0 3px 6px rgba(0, 0, 0, 0.3);
   z-index: 5;
 }
 
@@ -1878,6 +1957,18 @@ textarea {
     display: block;
   }
 
+  .header-actions {
+    gap: 6px;
+  }
+
+  .header-actions .btn-icon {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 1.1rem;
+  }
+
   .card-1 {
     position: relative;
     top: auto;
@@ -1976,7 +2067,8 @@ textarea {
    ========================================================================== */
 
 /* Hand-drawn Typography Helpers (zafarsyah.my.id aesthetic) */
-.scrawl, .hand-font {
+.scrawl,
+.hand-font {
   font-family: var(--font-handwriting);
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -2002,7 +2094,9 @@ textarea {
   width: 48px;
   height: 48px;
   transform-origin: center center;
-  transition: opacity 0.3s ease, filter 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    filter 0.3s ease;
   filter: drop-shadow(0 8px 16px rgba(42, 36, 29, 0.2));
   will-change: transform;
 }
@@ -2016,7 +2110,7 @@ textarea {
   position: relative;
 }
 .tape::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -10px;
   left: 50%;
@@ -2051,7 +2145,9 @@ textarea {
   pointer-events: auto;
   cursor: grab;
   user-select: none;
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+  transition:
+    transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    opacity 0.3s ease;
   will-change: transform;
 }
 
@@ -2066,9 +2162,15 @@ textarea {
 }
 
 @keyframes futsalFloat {
-  0% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-16px) rotate(45deg); }
-  100% { transform: translateY(8px) rotate(-30deg); }
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-16px) rotate(45deg);
+  }
+  100% {
+    transform: translateY(8px) rotate(-30deg);
+  }
 }
 
 /* Interactive Floating Running / Jogging 🏃‍♂️ */
@@ -2082,9 +2184,15 @@ textarea {
 }
 
 @keyframes joggingStride {
-  0% { transform: translateY(0px) scaleX(1); }
-  50% { transform: translateY(-14px) scaleX(1.08); }
-  100% { transform: translateY(6px) scaleX(1); }
+  0% {
+    transform: translateY(0px) scaleX(1);
+  }
+  50% {
+    transform: translateY(-14px) scaleX(1.08);
+  }
+  100% {
+    transform: translateY(6px) scaleX(1);
+  }
 }
 
 /* Floating Vector Squiggles & Code Symbols */
@@ -2111,7 +2219,16 @@ textarea {
 }
 
 @keyframes sparkleSpin {
-  0% { transform: scale(0.8) rotate(0deg); opacity: 0.4; }
-  50% { transform: scale(1.2) rotate(180deg); opacity: 0.9; }
-  100% { transform: scale(0.8) rotate(360deg); opacity: 0.4; }
+  0% {
+    transform: scale(0.8) rotate(0deg);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.2) rotate(180deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(0.8) rotate(360deg);
+    opacity: 0.4;
+  }
 }
