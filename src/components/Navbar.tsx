@@ -3,19 +3,11 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
 
-function readInitialTheme(): 'light' | 'dark' {
-  if (typeof document !== 'undefined') {
-    const t = document.documentElement.getAttribute('data-theme') as 'light' | 'dark' | null;
-    if (t) return t;
-  }
-  if (typeof window !== 'undefined') {
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  }
-  return 'light';
-}
-
 export default function Navbar() {
-  const [theme, setTheme] = useState<'light' | 'dark'>(readInitialTheme);
+  // Render awal HARUS 'light' agar identik dengan SSR (layout: data-theme="light").
+  // Nilai tema tersimpan disinkronkan setelah hydration via useEffect di bawah —
+  // membaca localStorage/matchMedia saat render menyebabkan hydration mismatch.
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const [isPlaying, setIsPlaying] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -51,6 +43,14 @@ export default function Navbar() {
       setIsPlaying(false);
     }
   }, [isPlaying]);
+
+  useEffect(() => {
+    // Sinkron ke tema aktual (sudah dipasang inline script di <head> sebelum paint).
+    const applied = document.documentElement.getAttribute('data-theme');
+    if (applied === 'light' || applied === 'dark') {
+      setTheme(applied);
+    }
+  }, []);
 
   useEffect(() => {
     return () => {

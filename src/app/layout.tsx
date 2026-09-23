@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import { Plus_Jakarta_Sans, Caveat, Kalam, Fira_Code } from 'next/font/google';
 import './globals.css';
 import {
@@ -9,6 +8,7 @@ import {
   InteractiveBackground,
   CustomCursor,
   ScrollObserver,
+  InlineScript,
 } from '@/components';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -94,8 +94,9 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`paper-texture ${plusJakartaSans.variable} ${caveat.variable} ${kalam.variable} ${firaCode.variable}`}
     >
-      <Script id="theme-init" strategy="beforeInteractive">
-        {`
+      <head>
+        <InlineScript
+          html={`
           (function () {
             try {
               var savedTheme = localStorage.getItem('portfolio-theme');
@@ -109,7 +110,8 @@ export default function RootLayout({
             }
           })();
         `}
-      </Script>
+        />
+      </head>
       <body>
         <ScrollObserver />
         <InteractiveBackground />

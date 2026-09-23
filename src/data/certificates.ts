@@ -1,6 +1,8 @@
 import { CertificateItem } from '@/types';
 
 export const certificatesData: CertificateItem[] = [
+  { id: 'c13', title: 'Web Development Internship Certificate — Aditya Beckham', issuer: 'Mahreen Indonesia 2026', image: '/assets/images/certificates/sertifikat-magang-aditya-beckham-firmansyah.png' },
+  { id: 'c14', title: 'Most Improved Intern Award', issuer: 'Mahreen Indonesia 2026', image: '/assets/images/certificates/most-improved-intern.png' },
   { id: 'c1', title: 'Ethical Hacker Certificate', issuer: 'KOMDIGI 2025', image: '/assets/images/certificates/sertifikatethicalhacker.png' },
   { id: 'c2', title: 'Fundamental Web Certificate', issuer: 'KOMDIGI 2025', image: '/assets/images/certificates/fundementaljuniorweb.png' },
   { id: 'c3', title: 'Intermediate Web Certificate', issuer: 'KOMDIGI 2025', image: '/assets/images/certificates/intermediateWeb.png' },
