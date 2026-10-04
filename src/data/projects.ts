@@ -29,6 +29,7 @@ export const projectsData: ProjectItem[] = [
     desc: "Platform web manajemen keuangan pribadi berbasis AI yang membantu pengguna mencatat, menganalisis, dan merencanakan kondisi finansial.",
     image: "/assets/images/projects/myfinance-preview.png",
     link: "https://myfinance-eight-psi.vercel.app/",
+    github: "https://github.com/MyFinance-AI-Powered-Money-Manager/MyFinance",
   },
 
   {
