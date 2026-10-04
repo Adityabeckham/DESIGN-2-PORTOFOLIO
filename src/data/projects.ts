@@ -5,10 +5,10 @@ export const projectsData: ProjectItem[] = [
     id: "1",
     category: "freelance",
     title: "Aplikasi Inventory Labkom",
-    meta: "Flutter · PHP Native · XAMPP · MySQL",
+    meta: "Freelance Project · Flutter · PHP Native · XAMPP · MySQL",
     desc: "Mengembangkan aplikasi Android berbasis Flutter untuk mendukung pengelolaan inventaris laboratorium komputer di SMK Al-Madani Jampangkulon. Sistem mencakup pendataan barang, peminjaman multi-item, pengembalian dengan denda otomatis, verifikasi, dan laporan.\n\nClient: Aria Rimba Fauna — Universitas Faletehan.",
     image: "/assets/images/projects/inventory-labkom-preview.png",
-    github: "https://github.com/Adityabeckham/inventory-labkom",
+    isPrivateRepo: true,
   },
 
   {
@@ -85,6 +85,17 @@ export const projectsData: ProjectItem[] = [
   {
     id: "9",
     category: "my-learning-projects",
+    title: "EventHub Kampus",
+    meta: "Mentorship Program by Ruang Belajar · React.js, Node.js, Express.js, Supabase,Vercel",
+    desc: "EventHub Kampus adalah platform terintegrasi berbasis web yang dirancang khusus untuk menyederhanakan dan mengotomatiskan seluruh alur manajemen event di lingkungan kampus (UKM, BEM, Himpunan Mahasiswa).",
+    image: "/assets/images/projects/eventhub-kampus.png",
+    link: "https://eventhub-kampus.vercel.app/",
+    github: "https://github.com/Adityabeckham/Mentorship-Program-by-Ruang-Belajar-Team-1",
+  },
+
+  {
+    id: "10",
+    category: "my-learning-projects",
     title: "Web TiketKeun",
     meta: "Frontend Project · HTML, JavaScript & Tailwind CDN",
     desc: "Aplikasi web interaktif untuk pemesanan tiket penerbangan, pencarian jadwal maskapai, dan simulasi transaksi.",
@@ -93,7 +104,7 @@ export const projectsData: ProjectItem[] = [
   },
 
   {
-    id: "10",
+    id: "11",
     category: "my-learning-projects",
     title: "Web Social-links-profile",
     meta: "Frontend Mentor Challenge · HTML & CSS",
@@ -103,7 +114,7 @@ export const projectsData: ProjectItem[] = [
   },
 
   {
-    id: "11",
+    id: "12",
     category: "my-learning-projects",
     title: "QR Code Component",
     meta: "Frontend Mentor Challenge · HTML & CSS Flexbox",
@@ -113,7 +124,7 @@ export const projectsData: ProjectItem[] = [
   },
 
   {
-    id: "12",
+    id: "13",
     category: "my-learning-projects",
     title: "Landing Page - Dicoding Indonesia",
     meta: "Dicoding Bootcamp Project · HTML & CSS",
@@ -123,7 +134,7 @@ export const projectsData: ProjectItem[] = [
   },
 
   {
-    id: "13",
+    id: "14",
     category: "my-learning-projects",
     title: "Ruang Belajar Platform",
     meta: "Web Platform · HTML & CSS",
@@ -133,7 +144,7 @@ export const projectsData: ProjectItem[] = [
   },
 
   {
-    id: "14",
+    id: "15",
     category: "my-learning-projects",
     title: "Todoapps — Dicoding Project",
     meta: "DOM App · Vanilla JS & LocalStorage",
@@ -143,7 +154,7 @@ export const projectsData: ProjectItem[] = [
   },
 
   {
-    id: "15",
+    id: "16",
     category: "my-learning-projects",
     title: "Bookshelf App — Dicoding Project",
     meta: "DOM App · Vanilla JS & LocalStorage",
@@ -153,7 +164,7 @@ export const projectsData: ProjectItem[] = [
   },
 
   {
-    id: "16",
+    id: "17",
     category: "my-learning-projects",
     title: "Kalkulator Sederhana",
     meta: "Mini Project · HTML, CSS & Vanilla JS",
@@ -163,7 +174,7 @@ export const projectsData: ProjectItem[] = [
   },
 
   {
-    id: "17",
+    id: "18",
     category: "my-learning-projects",
     title: "Warung Burger & Pizza Landing",
     meta: "Frontend Project · HTML, CSS & Tailwind",
@@ -173,7 +184,7 @@ export const projectsData: ProjectItem[] = [
   },
 
   {
-    id: "18",
+    id: "19",
     category: "my-learning-projects",
     title: "Aplikasi Cek Presentase Baterai",
     meta: "Mini Project · HTML, CSS & Vanilla JS",
@@ -183,7 +194,7 @@ export const projectsData: ProjectItem[] = [
   },
 
   {
-    id: "19",
+    id: "20",
     category: "my-learning-projects",
     title: "Program Bensin UTS",
     meta: "UTS Project Semester 2 · Java, MySQL,NetBeans",
@@ -193,7 +204,7 @@ export const projectsData: ProjectItem[] = [
   },
 
   {
-    id: "20",
+    id: "21",
     category: "my-learning-projects",
     title: "Storage Game — Whack a Box",
     meta: "Mini Game Project · HTML, CSS & JS",
@@ -203,7 +214,7 @@ export const projectsData: ProjectItem[] = [
   },
 
   {
-    id: "21",
+    id: "22",
     category: "my-learning-projects",
     title: "Website Toko Fashion",
     meta: "Frontend Project · HTML, CSS & JS",
@@ -213,7 +224,7 @@ export const projectsData: ProjectItem[] = [
   },
 
   {
-    id: "22",
+    id: "23",
     category: "my-learning-projects",
     title: "Warung Sederhana POS",
     meta: "Mini Project Java · Java, MySQL,NetBeans",

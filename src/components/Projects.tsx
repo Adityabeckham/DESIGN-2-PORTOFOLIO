@@ -81,10 +81,15 @@ export default function Projects() {
                       Live View
                     </a>
                   )}
-                  {proj.github && (
+                  {proj.github && !proj.isPrivateRepo && (
                     <a href={proj.github} target="_blank" rel="noreferrer" className="btn btn-secondary btn-sm">
                       View GitHub
                     </a>
+                  )}
+                  {proj.isPrivateRepo && (
+                    <span className="btn btn-secondary btn-sm opacity-75 cursor-not-allowed" style={{ pointerEvents: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                      🔒 Private Repo
+                    </span>
                   )}
                 </div>
               </div>

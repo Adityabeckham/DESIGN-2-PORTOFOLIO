@@ -16,6 +16,7 @@ export interface ProjectItem {
   image: string;
   link?: string;
   github?: string;
+  isPrivateRepo?: boolean;
 }
 
 export interface CertificateItem {
